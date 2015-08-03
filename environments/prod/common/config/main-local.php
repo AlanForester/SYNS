@@ -1,4 +1,5 @@
 <?php
+define('REDIS_PORT', 6379);
 return [
     'components' => [
         'db' => [
@@ -11,6 +12,12 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
+        ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => $_SERVER['HTTP_HOST'],
+            'port' => REDIS_PORT,
+            'database' => 0,
         ],
     ],
 ];
