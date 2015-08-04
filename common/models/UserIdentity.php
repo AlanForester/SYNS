@@ -16,7 +16,7 @@ use yii\web\IdentityInterface;
 
 /**
  * Class UserIdentity
- * @package app\models
+ * @package common\models
  */
 class UserIdentity extends User implements IdentityInterface {
 

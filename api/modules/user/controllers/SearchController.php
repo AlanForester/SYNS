@@ -8,14 +8,14 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\user\controllers;
+namespace api\modules\user\controllers;
 
 
-use app\api\common\controllers\AuthActiveController;
+use api\components\controllers\AuthActiveController;
 
 class SearchController extends AuthActiveController
 {
 
-    public $modelClass = 'app\api\core\user\models\SearchUser';
+    public $modelClass = 'api\models\AR\user\SearchUser';
 
 }
