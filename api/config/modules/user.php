@@ -18,7 +18,7 @@ return [
             'controller' => [
                 'user/password',
             ],
-            'prefix' => 'api',
+            'prefix' => 'v1',
             'pluralize' => false
         ],
         [
@@ -31,7 +31,7 @@ return [
             'controller' => [
                 'user/profile',
             ],
-            'prefix' => 'api',
+            'prefix' => 'v1',
             'pluralize' => false
         ],
         [
@@ -43,7 +43,7 @@ return [
             'controller' => [
                 'user/login',
             ],
-            'prefix' => 'api',
+            'prefix' => 'v1',
             'pluralize' => false
         ],
         [
@@ -55,7 +55,7 @@ return [
             'controller' => [
                 'user' => 'user/search',
             ],
-            'prefix' => 'api',
+            'prefix' => 'v1',
             'pluralize' => false
         ],
 ];
