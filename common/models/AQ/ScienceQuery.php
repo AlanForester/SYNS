@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Science]].
+ * This is the ActiveQuery class for [[\common\models\AR\Science]].
  *
- * @see \app\models\AR\Science
+ * @see \common\models\AR\Science
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class ScienceQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class ScienceQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Science[]|array
+     * @return \common\models\AR\Science[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class ScienceQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Science|array|null
+     * @return \common\models\AR\Science|array|null
      */
     public function one($db = null)
     {

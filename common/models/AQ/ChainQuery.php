@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Chain]].
+ * This is the ActiveQuery class for [[\common\models\AR\Chain]].
  *
- * @see \app\models\AR\Chain
+ * @see \common\models\AR\Chain
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class ChainQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class ChainQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Chain[]|array
+     * @return \common\models\AR\Chain[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class ChainQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Chain|array|null
+     * @return \common\models\AR\Chain|array|null
      */
     public function one($db = null)
     {

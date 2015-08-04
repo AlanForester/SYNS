@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Scheme]].
+ * This is the ActiveQuery class for [[\common\models\AR\Scheme]].
  *
- * @see \app\models\AR\Scheme
+ * @see \common\models\AR\Scheme
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class SchemeQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class SchemeQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Scheme[]|array
+     * @return \common\models\AR\Scheme[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class SchemeQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Scheme|array|null
+     * @return \common\models\AR\Scheme|array|null
      */
     public function one($db = null)
     {

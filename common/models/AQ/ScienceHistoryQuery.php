@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\ScienceHistory]].
+ * This is the ActiveQuery class for [[\common\models\AR\ScienceHistory]].
  *
- * @see \app\models\AR\ScienceHistory
+ * @see \common\models\AR\ScienceHistory
  */
 
-use app\components\ActiveQuery;
+use common\components\ActiveQuery;
 
 class ScienceHistoryQuery extends ActiveQuery
 {
@@ -28,7 +28,7 @@ class ScienceHistoryQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\ScienceHistory[]|array
+     * @return \common\models\AR\ScienceHistory[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class ScienceHistoryQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\ScienceHistory|array|null
+     * @return \common\models\AR\ScienceHistory|array|null
      */
     public function one($db = null)
     {

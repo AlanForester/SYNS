@@ -1,11 +1,11 @@
 <?php
 
-namespace app\models\AQ;
-use app\components\ActiveQuery;
+namespace common\models\AQ;
+use common\components\ActiveQuery;
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Request]].
+ * This is the ActiveQuery class for [[\common\models\AR\Request]].
  *
- * @see \app\models\AR\Request
+ * @see \common\models\AR\Request
  */
 class RequestQuery extends ActiveQuery
 {
@@ -20,7 +20,7 @@ class RequestQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Request[]|array
+     * @return \common\models\AR\Request[]|array
      */
     public function all($db = null)
     {
@@ -29,7 +29,7 @@ class RequestQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Request|array|null
+     * @return \common\models\AR\Request|array|null
      */
     public function one($db = null)
     {

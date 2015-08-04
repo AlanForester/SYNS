@@ -8,10 +8,10 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AR;
+namespace common\models\AR;
 
 use Yii;
-use app\components\ActiveRecord;
+use common\components\ActiveRecord;
 use common\models\AQ\EssenceHistoryQuery;
 
 /**

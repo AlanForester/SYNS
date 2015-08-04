@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Rule]].
+ * This is the ActiveQuery class for [[\common\models\AR\Rule]].
  *
- * @see \app\models\AR\Rule
+ * @see \common\models\AR\Rule
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class RuleQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class RuleQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Rule[]|array
+     * @return \common\models\AR\Rule[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class RuleQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Rule|array|null
+     * @return \common\models\AR\Rule|array|null
      */
     public function one($db = null)
     {

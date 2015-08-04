@@ -11,9 +11,9 @@
 namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Essence]].
+ * This is the ActiveQuery class for [[\common\models\AR\Essence]].
  *
- * @see \app\models\AR\Essence
+ * @see \common\models\AR\Essence
  */
 
 use common\components\ActiveQuery as BaseActiveQuery;

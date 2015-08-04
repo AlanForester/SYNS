@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Access]].
+ * This is the ActiveQuery class for [[\common\models\AR\Access]].
  *
- * @see \app\models\AR\Access
+ * @see \common\models\AR\Access
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class AccessQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class AccessQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Access[]|array
+     * @return \common\models\AR\Access[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class AccessQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Access|array|null
+     * @return \common\models\AR\Access|array|null
      */
     public function one($db = null)
     {

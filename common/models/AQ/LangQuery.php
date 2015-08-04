@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\Lang]].
+ * This is the ActiveQuery class for [[\common\models\AR\Lang]].
  *
- * @see \app\models\AR\Lang
+ * @see \common\models\AR\Lang
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class LangQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class LangQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Lang[]|array
+     * @return \common\models\AR\Lang[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class LangQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Lang|array|null
+     * @return \common\models\AR\Lang|array|null
      */
     public function one($db = null)
     {

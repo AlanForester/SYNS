@@ -8,10 +8,10 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
-use app\models\AR\User;
+use common\models\AR\User;
 use yii\web\IdentityInterface;
 
 /**

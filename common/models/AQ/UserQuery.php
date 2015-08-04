@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\User]].
+ * This is the ActiveQuery class for [[\common\models\AR\User]].
  *
- * @see \app\models\AR\User
+ * @see \common\models\AR\User
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class UserQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class UserQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\User[]|array
+     * @return \common\models\AR\User[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class UserQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\User|array|null
+     * @return \common\models\AR\User|array|null
      */
     public function one($db = null)
     {

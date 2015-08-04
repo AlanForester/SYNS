@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\ChainHistory]].
+ * This is the ActiveQuery class for [[\common\models\AR\ChainHistory]].
  *
- * @see \app\models\AR\ChainHistory
+ * @see \common\models\AR\ChainHistory
  */
 
-use app\components\ActiveQuery;
+use common\components\ActiveQuery;
 
 class ChainHistoryQuery extends ActiveQuery
 {
@@ -28,7 +28,7 @@ class ChainHistoryQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\ChainHistory[]|array
+     * @return \common\models\AR\ChainHistory[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class ChainHistoryQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\ChainHistory|array|null
+     * @return \common\models\AR\ChainHistory|array|null
      */
     public function one($db = null)
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace app\models\AR;
+namespace common\models\AR;
 
 use Yii;
-use app\components\ActiveRecord;
+use common\components\ActiveRecord;
 use common\models\AQ\RequestQuery;
 
 /**

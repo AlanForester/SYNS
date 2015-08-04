@@ -8,15 +8,15 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\app\models\AR\EssenceHistory]].
+ * This is the ActiveQuery class for [[\common\models\AR\EssenceHistory]].
  *
- * @see \app\models\AR\EssenceHistory
+ * @see \common\models\AR\EssenceHistory
  */
 
-use app\components\ActiveQuery;
+use common\components\ActiveQuery;
 
 class EssenceHistoryQuery extends ActiveQuery
 {
@@ -28,7 +28,7 @@ class EssenceHistoryQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\EssenceHistory[]|array
+     * @return \common\models\AR\EssenceHistory[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class EssenceHistoryQuery extends ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\EssenceHistory|array|null
+     * @return \common\models\AR\EssenceHistory|array|null
      */
     public function one($db = null)
     {
