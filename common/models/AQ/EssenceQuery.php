@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AQ;
+namespace common\models\AQ;
 
 /**
  * This is the ActiveQuery class for [[\app\models\AR\Essence]].
@@ -16,7 +16,7 @@ namespace app\models\AQ;
  * @see \app\models\AR\Essence
  */
 
-use app\components\ActiveQuery as BaseActiveQuery;
+use common\components\ActiveQuery as BaseActiveQuery;
 
 class EssenceQuery extends BaseActiveQuery
 {
@@ -28,7 +28,7 @@ class EssenceQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Essence[]|array
+     * @return \common\models\AR\Essence[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class EssenceQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\AR\Essence|array|null
+     * @return \common\models\AR\Essence|array|null
      */
     public function one($db = null)
     {

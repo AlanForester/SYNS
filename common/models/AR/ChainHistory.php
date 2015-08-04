@@ -12,7 +12,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\ChainHistoryQuery;
+use common\models\AQ\ChainHistoryQuery;
 /**
  * This is the model class for table "chain_history".
  *
@@ -83,7 +83,7 @@ class ChainHistory extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\ChainHistoryQuery the active query used by this AR class.
+     * @return \common\models\AQ\ChainHistoryQuery the active query used by this AR class.
      */
     public static function find()
     {

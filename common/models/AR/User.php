@@ -12,7 +12,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\UserQuery;
+use common\models\AQ\UserQuery;
 
 /**
  * This is the model class for table "user".
@@ -166,7 +166,7 @@ class User extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\UserQuery the active query used by this AR class.
+     * @return \common\models\AQ\UserQuery the active query used by this AR class.
      */
     public static function find()
     {

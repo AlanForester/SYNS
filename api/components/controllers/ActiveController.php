@@ -10,10 +10,10 @@
 namespace api\components\controllers;
 
 use yii\filters\HttpCache;
-use yii\filters\Cors;
+//use yii\filters\Cors;
 use yii\db\Query;
 
-class ActiveController extends Controller
+class ActiveController extends \yii\rest\ActiveController
 {
     /**
      * @inheritdoc
@@ -30,16 +30,16 @@ class ActiveController extends Controller
             },
         ];
         //ВАЖНО!!! надо добавлять для кросс-доменных запрсосов
-        $behaviors['corsFilter'] = [
-            'class' => Cors::className(),
-            'Access-Control-Request-Method' => ['POST', 'PUT'],
-            'Access-Control-Allow-Origin' => ['*'],
-            'Origin' => ['*'],
-            'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-            'Access-Control-Request-Headers' => ['*'],
-            'Access-Control-Allow-Credentials' => true,
-            'Access-Control-Max-Age' => 86400,
-        ];
+//        $behaviors['corsFilter'] = [
+//            'class' => Cors::className(),
+//            'Access-Control-Request-Method' => ['POST', 'PUT'],
+//            'Access-Control-Allow-Origin' => ['*'],
+//            'Origin' => ['*'],
+//           // 'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+//            'Access-Control-Request-Headers' => ['*'],
+//            'Access-Control-Allow-Credentials' => true,
+//            'Access-Control-Max-Age' => 86400,
+//        ];
         return $behaviors;
     }
 
@@ -49,12 +49,17 @@ class ActiveController extends Controller
     public function actions()
     {
         $actions = parent::actions();
-        $actions['view']['class'] = 'app\api\common\actions\ViewAction';
-        $actions['index']['class'] = 'app\api\common\actions\IndexAction';
-        $actions['update']['class'] = 'app\api\common\actions\UpdateAction';
-        $actions['delete']['class'] = 'app\api\common\actions\DeleteAction';
-        $actions['create']['class'] = 'app\api\common\actions\CreateAction';
-        $actions['options']['collectionOptions'] = ['GET', 'POST', 'HEAD', 'OPTIONS', 'DELETE', 'PUT', 'PATCH',];
+        $actions['view']['class'] = 'api\components\actions\ViewAction';
+        $actions['view']['modelClass'] = $this->modelClass;
+        $actions['index']['class'] = 'api\components\actions\IndexAction';
+        $actions['index']['modelClass'] = $this->modelClass;
+        $actions['update']['class'] = 'api\components\actions\UpdateAction';
+        $actions['update']['modelClass'] = $this->modelClass;
+        $actions['delete']['class'] = 'api\components\actions\DeleteAction';
+        $actions['delete']['modelClass'] = $this->modelClass;
+        $actions['create']['class'] = 'api\components\actions\CreateAction';
+        $actions['create']['modelClass'] = $this->modelClass;
+        $actions['options']['collectionOptions'] = ['GET', 'POST', 'HEAD', 'OPTIONS', 'DELETE', 'PUT', 'PATCH'];
         return $actions;
     }
 
@@ -63,8 +68,14 @@ class ActiveController extends Controller
      */
     protected function verbs()
     {
-        $verbs = parent::verbs();
-        $verbs['search'] = ['GET', 'HEAD'];
-        return $verbs;
+        return [
+            'index' => ['GET'],
+            'view' => ['GET'],
+            'create' => ['POST'],
+            'update' => ['PUT', 'PATCH'],
+            'delete' => ['DELETE'],
+            'search' => ['HEAD']
+        ];
     }
+
 }

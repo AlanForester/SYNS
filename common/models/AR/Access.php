@@ -8,11 +8,11 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AR;
+namespace common\models\AR;
 
 use Yii;
-use app\components\ActiveRecord;
-use app\models\AQ\AccessQuery;
+use common\components\ActiveRecord;
+use common\models\AQ\AccessQuery;
 
 /**
  * This is the model class for table "access".
@@ -81,7 +81,7 @@ class Access extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\AccessQuery the active query used by this AR class.
+     * @return \common\models\AQ\AccessQuery the active query used by this AR class.
      */
     public static function find()
     {

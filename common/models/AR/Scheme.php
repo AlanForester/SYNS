@@ -12,7 +12,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\SchemeQuery;
+use common\models\AQ\SchemeQuery;
 
 /**
  * This is the model class for table "scheme".
@@ -104,7 +104,7 @@ class Scheme extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\SchemeQuery the active query used by this AR class.
+     * @return \common\models\AQ\SchemeQuery the active query used by this AR class.
      */
     public static function find()
     {

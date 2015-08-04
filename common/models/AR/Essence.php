@@ -8,11 +8,11 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AR;
+namespace common\models\AR;
 
 use Yii;
-use app\components\ActiveRecord;
-use app\models\AQ\EssenceQuery;
+use common\components\ActiveRecord;
+use common\models\AQ\EssenceQuery;
 
 /**
  * This is the model class for table "essence".
@@ -272,7 +272,7 @@ class Essence extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\EssenceQuery the active query used by this AR class.
+     * @return \common\models\AQ\EssenceQuery the active query used by this AR class.
      */
     public static function find()
     {

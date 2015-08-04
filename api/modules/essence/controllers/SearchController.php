@@ -8,14 +8,14 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\essence\controllers;
+namespace api\modules\essence\controllers;
 
 
-use api\controllers\essence\ActiveController;
+use api\components\controllers\ActiveController;
 
 class SearchController extends ActiveController
 {
 
-    public $modelClass = 'app\api\core\essence\models\common\RestEssence';
+    public $modelClass = 'api\models\AR\RestEssence';
 
 }

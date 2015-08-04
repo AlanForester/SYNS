@@ -8,10 +8,10 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\essence\models\common;
+namespace api\models\AR;
 
 
-use app\models\AR\Essence;
+use common\models\AR\Essence;
 
 class RestEssence extends Essence {
 

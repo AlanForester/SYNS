@@ -12,7 +12,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\LangQuery;
+use common\models\AQ\LangQuery;
 
 /**
  * This is the model class for table "lang".
@@ -81,7 +81,7 @@ class Lang extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\LangQuery the active query used by this AR class.
+     * @return \common\models\AQ\LangQuery the active query used by this AR class.
      */
     public static function find()
     {

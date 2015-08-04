@@ -8,11 +8,11 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\models\AR;
+namespace common\models\AR;
 
 use Yii;
-use app\components\ActiveRecord;
-use app\models\AQ\ChainQuery;
+use common\components\ActiveRecord;
+use common\models\AQ\ChainQuery;
 
 /**
  * This is the model class for table "chain".
@@ -269,7 +269,7 @@ class Chain extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\ChainQuery the active query used by this AR class.
+     * @return \common\models\AQ\ChainQuery the active query used by this AR class.
      */
     public static function find()
     {

@@ -12,7 +12,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\ScienceHistoryQuery;
+use common\models\AQ\ScienceHistoryQuery;
 
 /**
  * This is the model class for table "science_history".
@@ -94,7 +94,7 @@ class ScienceHistory extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\ScienceHistoryQuery the active query used by this AR class.
+     * @return \common\models\AQ\ScienceHistoryQuery the active query used by this AR class.
      */
     public static function find()
     {

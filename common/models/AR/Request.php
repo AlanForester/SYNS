@@ -4,7 +4,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\RequestQuery;
+use common\models\AQ\RequestQuery;
 
 /**
  * This is the model class for table "request".
@@ -77,7 +77,7 @@ class Request extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\RequestQuery the active query used by this AR class.
+     * @return \common\models\AQ\RequestQuery the active query used by this AR class.
      */
     public static function find()
     {

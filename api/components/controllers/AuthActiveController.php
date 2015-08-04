@@ -15,7 +15,9 @@ use yii\filters\auth\HttpBasicAuth;
 use app\models\UserIdentity as User;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\QueryParamAuth;
-class AuthActiveController extends Controller
+use yii\rest\ActiveController;
+
+class AuthActiveController extends ActiveController
 {
 
     public $modelClass = 'app\models\UserIdentity';

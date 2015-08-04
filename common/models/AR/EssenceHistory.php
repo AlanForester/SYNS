@@ -12,7 +12,7 @@ namespace app\models\AR;
 
 use Yii;
 use app\components\ActiveRecord;
-use app\models\AQ\EssenceHistoryQuery;
+use common\models\AQ\EssenceHistoryQuery;
 
 /**
  * This is the model class for table "essence_history".
@@ -84,7 +84,7 @@ class EssenceHistory extends ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\AQ\EssenceHistoryQuery the active query used by this AR class.
+     * @return \common\models\AQ\EssenceHistoryQuery the active query used by this AR class.
      */
     public static function find()
     {
