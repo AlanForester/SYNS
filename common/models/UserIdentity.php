@@ -37,7 +37,7 @@ class UserIdentity extends User implements IdentityInterface {
      */
     public static function findIdentity($id)
     {
-        return static::find($id);
+        return static::findOne(['login' => $id]);
     }
 
     /**

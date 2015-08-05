@@ -21,12 +21,4 @@ class UpdateAction extends BaseUpdateAction
 {
     public $scenario = Model::SCENARIO_DEFAULT;
 
-    public $id = null;
-
-    public function run($id = null)
-    {
-        if (!$id && !$this->id)
-            $id = $this->id;
-        return parent::run($id);
-    }
 }

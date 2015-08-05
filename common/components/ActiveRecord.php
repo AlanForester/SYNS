@@ -50,8 +50,8 @@ class ActiveRecord extends \yii\db\ActiveRecord
 
     public function scenarios()
     {
-        $scenarios = parent::scenarios();
-        return array_merge_recursive($this->protectedAttributes,$scenarios);
+        //$scenarios = parent::scenarios(); //TODO: Set Shield for each model its ok!
+        return $this->protectedAttributes;
 
     }
 

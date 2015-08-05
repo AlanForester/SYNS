@@ -18,7 +18,7 @@ return [
     'defaultRoute' => 'default/index',
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\UserIdentity',
             'enableAutoLogin' => false,
         ],
         'log' => [

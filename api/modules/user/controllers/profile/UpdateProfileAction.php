@@ -8,24 +8,25 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\user\controllers\profile;
+namespace api\modules\user\controllers\profile;
 
 use Yii;
 use yii\web\ServerErrorHttpException;
-use app\api\common\models\RestActiveRecord;
-use app\api\common\actions\UpdateAction as BaseUpdateAction;
+use common\components\ActiveRecord;
+use api\components\actions\UpdateAction as BaseUpdateAction;
 
-class UpdateAction extends BaseUpdateAction {
+class UpdateProfileAction extends BaseUpdateAction {
 
-    public $modelClass = 'app\api\core\user\models\ProfileUser';
+    public $modelClass = 'api\models\AR\user\ProfileUser';
     /**
      * Updates an existing model.
      * @return \yii\db\ActiveRecordInterface the model being updated
      * @throws ServerErrorHttpException if there is any error when updating the model
      */
-    public function run()
+
+    public function run($id = null)
     {
-        /* @var $model RestActiveRecord */
+        /* @var $model ActiveRecord */
         $model = $this->findModel(Yii::$app->user->id);
         if ($this->checkAccess) {
             call_user_func($this->checkAccess, $this->id, $model);

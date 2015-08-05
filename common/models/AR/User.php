@@ -79,6 +79,7 @@ class User extends ActiveRecord
             [['birthday', 'rating', 'status', 'access_id', 'created_at', 'updated_at'], 'integer'],
             [['login', 'email', 'phone', 'name', 'surname', 'last_name', 'country', 'zone', 'city', 'area', 'street', 'build', 'flat', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 128],
+            [['name'], 'safe'],
             [['email'], 'unique'],
             [['login'], 'unique'],
             [['phone'], 'unique']

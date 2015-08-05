@@ -8,10 +8,12 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\user\controllers\profile;
-use Yii;
+namespace api\modules\user\controllers\profile;
 
-class ViewAction extends \app\api\common\actions\ViewAction {
+use Yii;
+use api\components\actions\ViewAction as BaseViewAction;
+
+class ViewAction extends BaseViewAction {
 
     public function run() {
         return parent::run(Yii::$app->user->id);

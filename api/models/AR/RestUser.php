@@ -14,7 +14,7 @@ use common\models\AR\User;
 
 /**
  * Class RestUser
- * @package app\api\core\user\models\common
+ * @package api\models\AR
  */
 class RestUser extends User {
 
