@@ -21,7 +21,6 @@ return [
         'controller' => [
             'essence' => 'essence/search',
         ],
-        'prefix' => 'v1',
         'pluralize' => false
     ],
 //        [

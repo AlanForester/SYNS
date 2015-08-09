@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\modules\user\controllers;
+namespace api\versions\v1\user\controllers;
 
 use api\components\controllers\AuthActiveController;
 use Yii;
@@ -19,8 +19,8 @@ class ProfileController extends AuthActiveController {
 
     public function actions() {
         $actions = parent::actions();
-        $actions['view']['class'] = 'api\modules\user\controllers\profile\ViewAction';
-        $actions['update']['class'] = 'api\modules\user\controllers\profile\UpdateProfileAction';
+        $actions['view']['class'] = 'api\versions\v1\user\controllers\profile\ViewAction';
+        $actions['update']['class'] = 'api\versions\v1\user\controllers\profile\UpdateProfileAction';
         return $actions;
     }
 

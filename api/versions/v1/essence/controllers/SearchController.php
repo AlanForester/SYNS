@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\modules\essence\controllers;
+namespace api\versions\v1\essence\controllers;
 
 
 use api\components\controllers\ActiveController;

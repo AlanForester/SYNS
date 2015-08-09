@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\user\controllers\password;
+namespace api\versions\v1\user\controllers\password;
 
 use Yii;
 use app\api\core\user\models\common\RestUser;

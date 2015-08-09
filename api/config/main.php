@@ -1,16 +1,16 @@
 <?php
 
-use api\components\UrlRuleManager;
 use api\components\ModuleManager;
-
+use yii\helpers\ArrayHelper;
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
+$modules = ModuleManager::getConfig();
 
-return [
+$config = [
     'id' => 'TimeShift-API',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -37,9 +37,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,
-            'rules' => UrlRuleManager::getRulesConfig()
         ],
     ],
-    'modules' => ModuleManager::getModules(),
     'params' => $params,
 ];
+
+$return = ArrayHelper::merge($config,$modules);
+return $return;

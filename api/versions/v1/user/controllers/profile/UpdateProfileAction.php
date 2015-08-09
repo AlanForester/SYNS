@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\modules\user\controllers\profile;
+namespace api\versions\v1\user\controllers\profile;
 
 use Yii;
 use yii\web\ServerErrorHttpException;

@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\user\controllers;
+namespace api\versions\v1\user\controllers;
 
 
 use app\api\common\controllers\ActiveController;

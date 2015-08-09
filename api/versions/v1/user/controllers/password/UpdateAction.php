@@ -8,13 +8,13 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace app\api\core\user\controllers\password;
+namespace api\versions\v1\user\controllers\password;
 
 use app\api\core\user\models\common\RestUser;
 use Yii;
 use yii\web\BadRequestHttpException;
 use yii\web\ServerErrorHttpException;
-class UpdateAction extends \app\api\common\actions\UpdateAction {
+class UpdateAction extends \api\components\actions\UpdateAction {
 
     public function run($token,$login) {
         $user = RestUser::findOne($login);

@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\modules\user\controllers;
+namespace api\versions\v1\user\controllers;
 
 use Yii;
 use api\components\controllers\ActiveController;
