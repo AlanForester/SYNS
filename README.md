@@ -7,13 +7,13 @@ TimeShift web application project
 <br> *sudo composer selfupdate*
 <br> *composer install*
 <br> *bower install*
-<br> -- *16*
 <br> -- *2*
 <br> -- *2*
-<br> *npm -g install coffee-script*
-<br> *npm install scss -g*
-<br> *npm install less -g*
-<br> *npm install markdown -g*
+<br> -- *7*
+<br> *sudo npm -g install coffee-script*
+<br> *sudo npm install scss -g*
+<br> *sudo npm install less -g*
+<br> *sudo npm install markdown -g*
 <br> *./init*
 <br> -- *0*
 <br> -- *yes*

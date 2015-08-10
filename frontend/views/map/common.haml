@@ -1,0 +1,16 @@
+-use app\assets\map\CommonAsset
+-CommonAsset::register($this)
+
+%div(ng-controller="MyCtrl" class="block")
+  {{demo}}
+  
+%ul#maps(ng-init="show=false")
+  - foreach($maps as $map)
+
+    %li.map(ng-click="show='#{$map->science_by}'")
+      = $map->essence_by
+      
+%div(ng-show="show")
+  {{show}}
+  
+

@@ -1,0 +1,111 @@
+-# =
+  Date: 22.04.15
+  Time: 16:00
+  Project: TimeShift
+  Developer: Alex Collin <alex@collin.su>
+  Copyright by "CleverTek LLC" 2014-2015
+
+-use app\assets\index\IndexAsset
+-IndexAsset::register($this)
+
+%nav#mainNav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Раскрыть навигацию
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand.page-scroll{:href => "#page-top"} TimeShift
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a.page-scroll{:href => "#about"} О проекте
+        %li
+          %a.page-scroll{:href => "#services"} Возможности
+        %li
+          %a.page-scroll{:href => "#plans"} Вашему вниманию
+        %li
+          %a.page-scroll{:href => "#contact"} Контакты
+
+%header
+  .header-content
+    .header-content-inner
+      %h1 Возможность показать многое
+      %hr/
+      %p Наша цель, предоставить возможность, зрительно показать о состоянии и возможности многих вещей, а так-же их связей с другими родственниками. Это может быть область медицы или психологии. В этом нам помогают фундаментальные основы физики и философии.
+      %p Но развитие остается за вами!
+      %a.btn.btn-primary.btn-xl.page-scroll{:href => "#about"} Войти в проект!
+%section#about.bg-primary
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.text-center
+        %h2.section-heading Показывайте опыт, и делитесь им!
+        %hr.light/
+        %p.text-faded Вы можете оказать неоценимую поддержку проекту и любому посетителю проекта. Просто примите участие в развитии научной области или просто связывайте события и сущности.
+        %a.btn.btn-default.btn-xl{:href => "#"} Начать создавать!
+%section#services
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading Лучшее в TimeShift
+        %hr.primary/
+  .container
+    .row
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary
+          %h3 Стандарт данных
+          %p.text-muted Наши стандарты представления данных основаны на фундаменте разных философий и наук.
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary{"data-wow-delay" => ".1s"}
+          %h3 Создавай и связывай
+          %p.text-muted Вы можете сразу сделать вклад в проект, а наши роботы обработают его и покажут всему миру.
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-newspaper-o.wow.bounceIn.text-primary{"data-wow-delay" => ".2s"}
+          %h3 Актуальная информация
+          %p.text-muted Мы обновляем информацию в режиме реалтайм и не требуем модерации.
+      .col-lg-3.col-md-6.text-center
+        .service-box
+          %i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary{"data-wow-delay" => ".3s"}
+          %h3 Делай с любовью
+          %p.text-muted Окунись с океан своего увлечения, хобби или науки. Создавай то, что нравится!
+%section#plans.no-padding
+  .container-fluid
+    .row.no-gutter
+      - $count = count($requests)
+      - foreach($requests as $request) :
+      - ($count%3 > 0) ? $col = 4 : $col = 6
+      .col-lg- -#{$col}.col-sm-6
+        %a.portfolio-box{:href => "#"}
+          %img.img-responsive{:alt => "", :src => "uploads/requests/" . $request->image . ".jpg"}/
+          .portfolio-box-caption
+            .portfolio-box-caption-content
+              .project-category.text-faded
+                = $request->title
+              .project-name
+                = $request->description
+      - endforeach;
+%aside.bg-dark
+  .container.text-center
+    .call-to-action
+      %h2 Дай свободу мыслям и фантазии.
+      %a.btn.btn-default.btn-xl.wow.tada{:href => "#"} Стать архитектором проекта!
+%section#contact
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.text-center
+        %h2.section-heading Создавай с легкостью!
+        %hr.primary/
+        %p Мы постоянно работаем над улучшением TimeShift, что бы использовать ваш труд, более продуктивно и пытаемся максимально облегчить понимание проекта наших дорогих посетителей. Если у вас есть предложения или вопросы свяжитесь с нами.
+      .col-lg-4.col-lg-offset-2.text-center
+        %i.fa.fa-skype.fa-3x.wow.bounceIn
+        %p
+          %a{:href => "skype:live:alex_300?chat"} live:alex_300
+      .col-lg-4.text-center
+        %i.fa.fa-envelope-o.fa-3x.wow.bounceIn{"data-wow-delay" => ".1s"}
+        %p
+          %a{:href => "mailto:" . Yii::$app->params['adminEmail']} #{Yii::$app->params['adminEmail']}

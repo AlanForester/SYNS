@@ -1,0 +1,28 @@
+-# =
+  Date: 27.07.15
+  Project: TimeShift
+  Developer Alex Collin <alex@collin.su>
+  Copyright by "CleverTek LLC" 2014-2015
+-use dee\angular\AngularAsset
+-AngularAsset::register($this)
+-use yii\helpers\Html
+-use yii\web\View
+-$view->beginPage()
+!!!
+%html{:lang => Yii::$app->language}
+  %head
+    %meta{:charset => Yii::$app->charset}
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
+    %meta(name="description" content="#{Yii::$app->params['projectDescription']}")
+    %meta(name="author" content="#{Yii::$app->params['author']}")
+    !=Html::csrfMetaTags()
+    %title = Html::encode($view->title)
+    -$view->head()
+  %body#page-top
+
+    -$view->beginBody()
+    !=$content
+    -$view->endBody()
+
+-$view->endPage()
