@@ -15,12 +15,23 @@ use GlobIterator;
 use yii\web\HttpException;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Class ModuleManager
+ * @package api\components
+ */
 class ModuleManager
 {
 
+    /**
+     * @var string
+     */
     private $basePath = 'api';
 
 
+    /**
+     * @return mixed
+     * @throws HttpException
+     */
     public static function getConfig()
     {
         $manager = new self;
@@ -32,6 +43,10 @@ class ModuleManager
         return $config;
     }
 
+    /**
+     * @return array
+     * @throws HttpException
+     */
     private function getVersions()
     {
         $versions = [];
@@ -46,6 +61,11 @@ class ModuleManager
         return $versions;
     }
 
+    /**
+     * @param $versions
+     * @return array
+     * @throws HttpException
+     */
     private function getVersionModules($versions)
     {
         $modules = [];
@@ -63,6 +83,10 @@ class ModuleManager
         return $modules;
     }
 
+    /**
+     * @param $versionModules
+     * @return array
+     */
     private function getModulesConfig($versionModules)
     {
         $config = [];
@@ -87,6 +111,11 @@ class ModuleManager
         return $config;
     }
 
+    /**
+     * @param $moduleConfig
+     * @return array
+     * @throws HttpException
+     */
     private function getModuleRules($moduleConfig)
     {
         $rules = [];
@@ -94,7 +123,7 @@ class ModuleManager
             foreach ($modules as $moduleName => $module) {
                 $ruleFile = dirname(__DIR__) . '/versions/' . $version . '/' . $moduleName . '/config/urlRules.php';
                 if (file_exists($ruleFile)) {
-                    $ruleModule = require($ruleFile);
+                    $ruleModule = require( $ruleFile );
                     foreach ($ruleModule as $index => $rule) {
                         $ruleModule[$index]['prefix'] = $version;
                     }
@@ -106,6 +135,11 @@ class ModuleManager
         return $rules;
     }
 
+    /**
+     * @param $modules
+     * @param $rules
+     * @return mixed
+     */
     private function buildConfig($modules, $rules)
     {
         $config['modules'] = [];
