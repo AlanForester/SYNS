@@ -14,6 +14,7 @@ TimeShift web application project
 <br> *sudo npm install scss -g*
 <br> *sudo npm install less -g*
 <br> *sudo npm install markdown -g*
+<br> *sudo npm -g install grunt-haml-php
 <br> *./init*
 <br> -- *0*
 <br> -- *yes*

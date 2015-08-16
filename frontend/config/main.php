@@ -34,4 +34,9 @@ return [
         'urlManager' => $urlManager,
     ],
     'params' => $params,
+    'aliases' => [
+        '@views' => dirname(__DIR__) . '/views',
+        //'@angular' => '@frontend/app',
+        //'@libs' => '@frontend/libs'
+    ]
 ];

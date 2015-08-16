@@ -11,8 +11,8 @@
 
 namespace app\controllers;
 
-use app\components\FrontendController;
-use app\models\AR\Request;
+use common\components\FrontendController;
+use common\models\AR\Request;
 use Yii;
 
 class IndexController extends FrontendController

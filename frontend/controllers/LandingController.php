@@ -6,14 +6,17 @@
  * Time: 11:58
  */
 
-namespace controllers;
+namespace frontend\controllers;
 
+use frontend\components\FrontendController;
+use common\models\AR\Request;
 
-use yii\web\Controller;
-
-class LandingController extends Controller
+class LandingController extends FrontendController
 {
+    public $layout = 'landing.php';
+
     public function actionIndex() {
-        return $this->render('index');
+        $requests = Request::find()->onLanding()->all();
+        return $this->render('index.haml',['requests' => $requests]);
     }
 }
