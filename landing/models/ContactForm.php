@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace landing\models;
 
 use Yii;
 use yii\base\Model;
@@ -27,7 +27,7 @@ class ContactForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha', 'captchaAction'=>'default/captcha'],
         ];
     }
 
@@ -37,7 +37,7 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'captcha' => 'Verification Code',
         ];
     }
 

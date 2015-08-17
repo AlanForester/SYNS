@@ -8,7 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace frontend\controllers;
+namespace landing\controllers;
 
 use landing\components\LandingController;
 use Yii;
