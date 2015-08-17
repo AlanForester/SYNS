@@ -1,7 +1,7 @@
 *
 !.gitignore
-!bootstrap
-!css
-!js
-!php
-!images
+!bootstrap/
+!css/
+!js/
+!php/
+!images/
