@@ -54,7 +54,7 @@ $config = [
                                 'no_entities' => false,
                                 'predef_urls' => [],
                                 'predef_titles' => [],
-                            ],
+                            ],2
                         ],
                     ],
                 ],
