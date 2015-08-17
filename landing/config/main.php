@@ -5,14 +5,13 @@ $params = array_merge(
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
-$urlManager = require(__DIR__ . '/urlmanager.php');
 
 return [
-    'id' => 'app-frontend',
+    'id' => 'app-landing',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'index/index',
-    'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'default/index',
+    'controllerNamespace' => 'landing\controllers',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -31,7 +30,11 @@ return [
         'errorHandler' => [
             'errorAction' => 'error/index',
         ],
-        'urlManager' => $urlManager,
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+        ]
     ],
     'params' => $params,
     'aliases' => [

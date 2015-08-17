@@ -17,6 +17,6 @@ class LandingController extends FrontendController
 
     public function actionIndex() {
         $requests = Request::find()->onLanding()->all();
-        return $this->render('index.haml',['requests' => $requests]);
+        return $this->render('index.php',['requests' => $requests]);
     }
 }

@@ -10,10 +10,10 @@
 
 namespace frontend\controllers;
 
+use landing\components\LandingController;
 use Yii;
-use yii\web\Controller;
 
-class ErrorController extends Controller
+class ErrorController extends LandingController
 {
     public function actions()
     {

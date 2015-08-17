@@ -39,6 +39,8 @@ return [
             'client/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+            'landing/runtime',
+            'landing/web/assets',
         ],
         'setExecutable' => [
             'yii',
@@ -48,6 +50,7 @@ return [
             'admin/config/main-local.php',
             'client/config/main-local.php',
             'frontend/config/main-local.php',
+            'landing/config/main-local.php',
         ],
     ],
     'Production' => [
@@ -60,6 +63,8 @@ return [
             'client/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+            'landing/runtime',
+            'landing/web/assets',
         ],
         'setExecutable' => [
             'yii',
@@ -68,6 +73,7 @@ return [
             'admin/config/main-local.php',
             'client/config/main-local.php',
             'frontend/config/main-local.php',
+            'landing/config/main-local.php',
         ],
     ],
 ];
