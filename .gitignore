@@ -29,4 +29,3 @@ phpunit.phar
 
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-*.map
