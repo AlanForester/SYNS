@@ -14,29 +14,17 @@ use yii\helpers\Html;
 use yii\web\View;
 
 ?>
-
 <article id="contact" class="section-wrapper clearfix"
          data-custom-background-img="assets/images/other_images/bg4.jpg">
     <div class="content-wrapper clearfix">
-
         <h1 class="section-title" id="contact-header">Контакты</h1>
 
-        <!-- CONTACT DETAILS -->
         <div class="contact-details col-sm-5 col-md-3">
-            <!--            <p>123A,<br/>Molestie Lorem Avenue,<br/>Aliquam<br/>AAA0010</p>-->
-
-            <!--            <p>Tel: (+20) 21 301 524</p>-->
-
             <p><a href="mailto:info@timeshift.in">Написать письмо </a><br>Email: info@timeshift.in</a></p>
 
             <p><a href="skype:live:alex_300?chat">Написать сообщение </a><br>Skype: live:alex_300</p>
         </div>
-        <!-- END: CONTACT DETAILS -->
-
-        <!-- CONTACT FORM -->
         <div class="col-sm-7 col-md-9">
-            <!-- IMPORTANT: change the email address at the top of the assets/php/mail.php file to the email address that you want this form to send to -->
-
             <?php $form = ActiveForm::begin([
                 'id' => 'contact-form',
                 'action' => ['contact'],
@@ -131,7 +119,7 @@ use yii\web\View;
             type: 'post',
             data: form.serialize(),
             success: function(data) {
-                $('#sendStatus').html("<div class='alert alert-success'>");
+                $('#sendStatus').html("<div class='alert alert-message'>");
                 form[0].reset();
                 $('#sendStatus > .alert-success').append("<strong>Спасибо! Ваше сообщение отправлено.</strong>");
                 $('#sendStatus > .alert-success').append('</div>');
@@ -149,10 +137,7 @@ JAVASCRIPT;
             $this->registerJs($js, View::POS_READY);
             ?>
         </div>
-        <div class="col-md-6" id="sendStatus">
+        <div class="col-sm-7 col-md-9 pull-right text-center" id="sendStatus">
         </div>
-        <!-- end: CONTACT FORM -->
-
     </div>
-    <!-- .content-wrapper -->
 </article>

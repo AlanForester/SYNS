@@ -11,5 +11,5 @@ namespace landing\widgets;
 use yii\widgets\ActiveField as BaseActiveField;
 class ActiveField extends BaseActiveField
 {
-
+    public $errorOptions = ['class' => 'help-block', 'style' => 'color:white;'];
 }

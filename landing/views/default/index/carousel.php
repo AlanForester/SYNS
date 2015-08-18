@@ -8,25 +8,18 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 ?>
-
 <article id="carousel" class="section-wrapper clearfix"
          data-custom-background-img="assets/images/other_images/bg6.jpg">
     <div class="content-wrapper clearfix">
-
         <div id="features-carousel" class="carousel slide with-title-indicators max-height"
              data-height-percent="70" data-ride="carousel">
-
-            <!-- Indicators - slide navigation -->
             <ol class="carousel-indicators title-indicators">
                 <li data-target="#features-carousel" data-slide-to="0" class="active">Lorem Ipsum</li>
                 <li data-target="#features-carousel" data-slide-to="1">Suspendisse</li>
                 <li data-target="#features-carousel" data-slide-to="2">Maecenas</li>
                 <li data-target="#features-carousel" data-slide-to="3">Scelerisque</li>
             </ol>
-
-            <!-- Wrapper for slides -->
             <div class="carousel-inner">
-
                 <div class="item active">
                     <div class="carousel-text-content">
                         <img src="assets/images/other_images/transp-image1.png" class="icon" alt="Lorem Ipsum">
@@ -54,11 +47,8 @@
                             <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus
                                 risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
                         </div>
-                        <!-- #modal-content-2 -->
                     </div>
                 </div>
-                <!-- .item -->
-
                 <div class="item">
                     <div class="carousel-text-content">
                         <img src="assets/images/other_images/transp-image6.png" class="icon" alt="Lorem Ipsum">
@@ -86,11 +76,8 @@
                             <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus
                                 risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
                         </div>
-                        <!-- #modal-content-3 -->
                     </div>
                 </div>
-                <!-- .item -->
-
                 <div class="item">
                     <div class="carousel-text-content">
                         <img src="assets/images/other_images/transp-image7.png" class="icon" alt="Lorem Ipsum">
@@ -119,11 +106,8 @@
                             <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus
                                 risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
                         </div>
-                        <!-- #modal-content-4 -->
                     </div>
                 </div>
-                <!-- .item -->
-
                 <div class="item">
                     <div class="carousel-text-content">
                         <img src="assets/images/other_images/transp-image4.png" class="icon" alt="Lorem Ipsum">
@@ -152,21 +136,11 @@
                             <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus
                                 risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
                         </div>
-                        <!-- #modal-content-5 -->
                     </div>
                 </div>
-                <!-- .item -->
-
             </div>
-            <!-- .carousel-inner -->
-
-            <!-- Controls -->
             <a class="left carousel-control" href="#features-carousel" data-slide="prev"></a>
             <a class="right carousel-control" href="#features-carousel" data-slide="next"></a>
-
         </div>
-        <!-- #about-carousel -->
-
     </div>
-    <!-- .content-wrapper -->
 </article>
