@@ -43,9 +43,9 @@ class AppAsset extends AssetBundle
         'assets/js/functions.js',
         'assets/js/initialise-functions.js'
     ];
-//    public $depends = [
-//
-//    ];
+    public $depends = [
+        'yii\web\YiiAsset',
+    ];
 
     public function init() {
         $this->jsOptions['position'] = View::POS_HEAD;
