@@ -131,7 +131,6 @@ use yii\web\View;
             type: 'post',
             data: form.serialize(),
             success: function(data) {
-                console.log(data);
                 $('#sendStatus').html("<div class='alert alert-success'>");
                 form[0].reset();
                 $('#sendStatus > .alert-success').append("<strong>Спасибо! Ваше сообщение отправлено.</strong>");
