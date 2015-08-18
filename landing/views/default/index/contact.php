@@ -54,19 +54,6 @@ use yii\web\View;
                         'template' => "{input}\n{hint}\n{error}",
                     ]) ?>
                 </div>
-                <div class="form-group">
-                    <?= $form->field($model, 'subject', [
-                        'options' => [
-                            'class' => 'form-group'
-                        ],
-                        'inputOptions' => [
-                            'class' => 'text-field form-control',
-                            'placeholder' => "Тема"
-
-                        ],
-                        'template' => "{input}\n{hint}\n{error}",
-                    ]) ?>
-                </div>
                 <?= $form->field($model, 'verifyCode', [
                     'options' => [
                         'class' => 'form-group text-right',

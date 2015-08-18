@@ -12,7 +12,6 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
-    public $subject;
     public $body;
     public $verifyCode;
 
@@ -25,7 +24,6 @@ class ContactForm extends Model
             // name, email, subject and body are required
             [['name'], 'required', 'message' => 'Введите Ваше имя'],
             [['email'], 'required', 'message' => 'Оставьте свой Email'],
-            [['subject'], 'required', 'message' => 'Укажите тему'],
             [['body'], 'required', 'message' => 'Напишите сообщение автору'],
             // email has to be a valid email address
             ['email', 'email', 'message' => 'Введите правильный Email'],
@@ -54,8 +52,7 @@ class ContactForm extends Model
     {
         return Yii::$app->mailer->compose()
             ->setTo(Yii::$app->params['adminEmail'])
-            ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
+            ->setSubject($this->name . "<".$this->email.">")
             ->setTextBody($this->body)
             ->send();
     }
