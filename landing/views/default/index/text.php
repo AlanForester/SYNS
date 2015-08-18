@@ -7,6 +7,7 @@
  *
  * Copyright by "CleverTek LLC" 2014-2015
  */
+use kartik\icons\Icon;
 ?>
 
 <article id="text" class="section-wrapper clearfix"
@@ -16,14 +17,17 @@
 
             <h1 class="section-title">Наглядность информации</h1>
 
-            <p class="feature-paragraph"><img data-img-src="assets/images/other_images/transp-image5b.png"
-                                              class="lazy pull-right" alt="Lorem Ipsum">Наша цель, предоставить возможность,
+            <p class="feature-paragraph">
+                <span class="lazy pull-right">
+                    <?=Icon::show("leaf",['class' => 'fa-4x', 'style' => 'margin-left:10px;'],Icon::FA)?>
+                </span>
+                Наша цель, предоставить возможность,
                 зрительно показать о состоянии и возможности многих вещей, а так-же их связей с другими родственниками.
                 Это может быть область медицы или психологии. В этом нам помогают фундаментальные основы физики и философии.
                 Но развитие остается за вами!</p>
             <h4>Ваш Вклад в будущее</h4>
 
-            <p>Ваши знания могут пригодиться кому угодно. Мало того, мы постараемся использовать ваш вклад максимально эффективно, для совершенствования Вашей области с помощью самообучаемых роботов.</p>
+            <p>Ваши знания могут пригодиться кому угодно. Мало того, мы постараемся использовать ваш вклад максимально эффективно, для совершенствования Вашей области развития с помощью самообучаемых роботов.</p>
 
             <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-1');"
                   class="btn btn-outline-inverse btn-sm">Войти в проект</a></p>

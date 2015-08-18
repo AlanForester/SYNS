@@ -7,6 +7,7 @@
  *
  * Copyright by "CleverTek LLC" 2014-2015
  */
+use kartik\icons\Icon;
 ?>
 
 <section id="left-sidebar">
@@ -21,11 +22,11 @@
             class="glyphicon glyphicon-th"></span></div>
 
     <ul id="main-menu">
-        <li id="menu-item-text" class="menu-item scroll"><a href="#text">У нас</a></li>
-        <li id="menu-item-carousel" class="menu-item scroll"><a href="#carousel">Создавай</a></li>
-        <li id="menu-item-grid" class="menu-item scroll"><a href="#grid">Используй</a></li>
-        <li id="menu-item-featured" class="menu-item scroll"><a href="#featured">Помогай</a></li>
-        <li id="menu-item-contact" class="menu-item scroll"><a href="#contact">Предлагай</a></li>
+        <li id="menu-item-text" class="menu-item scroll"><span style="position: absolute"><?=Icon::show("users",['class' => 'fa-1x'],Icon::FA)?></span><a href="#text">У нас</a></li>
+<!--        <li id="menu-item-carousel" class="menu-item scroll"><span style="position: absolute">--><?//=Icon::show("magic",['class' => 'fa-1x'],Icon::FA)?><!--</span><a href="#carousel">Создавай</a></li>-->
+        <li id="menu-item-grid" class="menu-item scroll"><span style="position: absolute"><?=Icon::show("plus",['class' => 'fa-1x'],Icon::FA)?></span><a href="#grid">Используй</a></li>
+<!--        <li id="menu-item-featured" class="menu-item scroll"><span style="position: absolute">--><?//=Icon::show("plug",['class' => 'fa-1x'],Icon::FA)?><!--</span><a href="#featured">Помогай</a></li>-->
+        <li id="menu-item-contact" class="menu-item scroll"><span style="position: absolute"><?=Icon::show("share-alt",['class' => 'fa-1x'],Icon::FA)?></span><a href="#contact">Предлагай</a></li>
     </ul>
     <!-- #main-menu -->
 

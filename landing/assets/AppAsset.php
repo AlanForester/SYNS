@@ -44,7 +44,7 @@ class AppAsset extends AssetBundle
         'assets/js/initialise-functions.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
+        'landing\assets\YiiAsset',
     ];
 
     public function init() {

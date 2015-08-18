@@ -35,16 +35,16 @@ use yii\web\View;
             <?= $this->render("index/text"); ?>
             <!-- .section-wrapper -->
 
-            <?= $this->render("index/carousel"); ?>
+<!--            --><?//= $this->render("index/carousel"); ?>
             <!-- .section-wrapper -->
 
             <?= $this->render("index/grid"); ?>
             <!-- .section-wrapper -->
 
-            <?= $this->render("index/featured"); ?>
+<!--            --><?//= $this->render("index/featured"); ?>
             <!-- .section-wrapper -->
 
-            <?= $this->render("index/contact"); ?>
+            <?= $this->render("index/contact",['model' => $model]); ?>
             <!-- .section-wrapper -->
 
         </section>

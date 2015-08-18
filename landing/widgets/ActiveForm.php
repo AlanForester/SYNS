@@ -11,5 +11,5 @@ namespace landing\widgets;
 
 class ActiveForm extends \yii\widgets\ActiveForm
 {
-
+    public $fieldClass = 'landing\widgets\ActiveField';
 }

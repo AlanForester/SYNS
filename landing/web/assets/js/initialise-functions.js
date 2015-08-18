@@ -31,8 +31,6 @@ function initialise_document_ready_functions()
       interval: 6000
     });
 
-    // initialise form validation and submit functions 
-    validate_and_submit_forms();
 
     // responsive videos
     $('.content-wrapper').fitVids();
