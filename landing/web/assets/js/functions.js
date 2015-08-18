@@ -897,4 +897,3 @@ function load_images(images_objects_selector_class, remove_selector_class_after_
     }
     // end: if images exist
 }
-

@@ -66,6 +66,3 @@ use yii\web\View;
 <? $this->registerJs('jQuery("#outer-background-container").backstretch("assets/images/other_images/bg5.jpg");', View::POS_READY); ?>
 <?= "<![endif]-->" ?>
 
-<?= "<!--[if lt IE 9]>" ?>
-<? $this->registerJs('contact_form_IE9_placeholder_fix()'); ?>
-<?= "<![endif]-->" ?>

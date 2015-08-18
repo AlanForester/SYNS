@@ -11,7 +11,8 @@
 use landing\widgets\ActiveForm;
 use landing\widgets\Captcha;
 use yii\helpers\Html;
-use yii\helpers\Url;
+use yii\web\View;
+
 ?>
 
 <article id="contact" class="section-wrapper clearfix"
@@ -38,7 +39,7 @@ use yii\helpers\Url;
 
             <?php $form = ActiveForm::begin([
                 'id' => 'contact-form',
-                //'action' => Url::toRoute('contact'),
+                'action' => ['contact'],
                 'options' => [
                     'class' => 'form-style clearfix',
                     'role' => 'form',
@@ -111,12 +112,45 @@ use yii\helpers\Url;
                 <div class="form-group">
                     <!--                    --><? //= Html::?>
                     <?= Html::submitButton('Отправить', [
+                        'id' => 'submitContact',
                         'class' => 'btn btn-sm btn-outline-inverse',
                         'name' => 'contact-button'
                     ]) ?>
                 </div>
             </div>
             <?php ActiveForm::end(); ?>
+            <? $js = <<<JAVASCRIPT
+  $('#contact-form').on('beforeSubmit', function(event, jqXHR, settings) {
+        var form = $(this);
+        if(form.find('.has-error').length) {
+            return false;
+        }
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'post',
+            data: form.serialize(),
+            success: function(data) {
+                console.log(data);
+                $('#sendStatus').html("<div class='alert alert-success'>");
+                form[0].reset();
+                $('#sendStatus > .alert-success').append("<strong>Спасибо! Ваше сообщение отправлено.</strong>");
+                $('#sendStatus > .alert-success').append('</div>');
+                setTimeout(function() { // скрываем modal через 4 секунды
+                    $('#sendStatus').html("").fadeOut(3000);
+                }, 8000);
+
+            }
+        });
+
+        return false;
+    });
+JAVASCRIPT;
+
+            $this->registerJs($js, View::POS_READY);
+            ?>
+        </div>
+        <div class="col-md-6" id="sendStatus">
         </div>
         <!-- end: CONTACT FORM -->
 
