@@ -1,1 +1,123 @@
 /* It is recommended to place all your extra/additional CSS rules here */
+@media (min-width: 768px) {
+    .ball {
+        height:100%;
+        width: 100%;
+        position: fixed;
+        top:-40px;
+        left:-95px;
+        max-width:180px;
+        max-height: 180px;
+        z-index: -1;
+    }
+    .logoText {
+        margin-top: 100px;
+    }
+}
+@media (min-width: 992px) {
+    .ball {
+        height:100%;
+        width: 100%;
+        position: fixed;
+        top:-40px;
+        left:-25%;
+        max-width:200px;
+        max-height: 200px;
+        z-index: -1;
+    }
+}
+@media (min-width: 1200px) {
+    .ball {
+        height:40%;
+        width: 30%;
+        position: fixed;
+       padding-left: 100px;
+    }
+
+}
+
+.ball {
+    display: inline-block;
+    margin: 0;
+    border-radius: 50%;
+    border: solid;
+    border-color: grey;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    background: url('/assets/images/world-map-one-color.png') repeat-x;
+    background-size: auto 100%;
+    -webkit-animation: move-map 30s infinite linear;
+    -moz-animation: move-map 30s infinite linear;
+    -o-animation: move-map 30s infinite linear;
+    -ms-animation: move-map 30s infinite linear;
+    animation: move-map 30s infinite linear;
+}
+
+
+
+.ball .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    -webkit-transform: rotateX(90deg) translateZ(-150px);
+    -moz-transform: rotateX(90deg) translateZ(-150px);
+    -ms-transform: rotateX(90deg) translateZ(-150px);
+    -o-transform: rotateX(90deg) translateZ(-150px);
+    transform: rotateX(90deg) translateZ(-150px);
+    z-index: -1;
+}
+
+
+.stage {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    margin: 20px;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    -o-perspective: 1200px;
+    perspective: 1200px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+}
+
+@-moz-keyframes move-map {
+    0% {
+        background-position: -849px 0; }
+
+    100% {
+        background-position: 0 0; } }
+
+@-webkit-keyframes move-map {
+    0% {
+        background-position: 0 0; }
+    100% {
+        background-position: -849px 0; }
+}
+
+
+@-o-keyframes move-map {
+    0% {
+        background-position: -849px 0; }
+
+    100% {
+        background-position: 0 0; } }
+
+@-ms-keyframes move-map {
+    0% {
+        background-position: -849px 0; }
+
+    100% {
+        background-position: 0 0; } }
+
+@keyframes move-map {
+    0% {
+        background-position: -849px 0; }
+
+    100% {
+        background-position: 0 0; } }

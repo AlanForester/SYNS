@@ -121,8 +121,8 @@ use yii\web\View;
             success: function(data) {
                 $('#sendStatus').html("<div class='alert alert-message'>");
                 form[0].reset();
-                $('#sendStatus > .alert-success').append("<strong>Спасибо! Ваше сообщение отправлено.</strong>");
-                $('#sendStatus > .alert-success').append('</div>');
+                $('#sendStatus > .alert-message').append("<strong>Спасибо! Ваше сообщение отправлено.</strong>");
+                $('#sendStatus > .alert-message').append('</div>');
                 setTimeout(function() { // скрываем modal через 4 секунды
                     $('#sendStatus').html("").fadeOut(3000);
                 }, 8000);

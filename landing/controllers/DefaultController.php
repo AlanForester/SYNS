@@ -28,7 +28,6 @@ class DefaultController extends LandingController
         return [
             'captcha' => [
                 'class' => 'landing\components\CaptchaAction',
-                //'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
@@ -47,6 +46,7 @@ class DefaultController extends LandingController
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             //return $this->refresh();
+            $model->sendEmail();
             return Json::encode($model->attributes);
         } else {
             return Json::encode($model->getErrors());
