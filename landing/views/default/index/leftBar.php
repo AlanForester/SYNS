@@ -8,6 +8,7 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 use kartik\icons\Icon;
+use yii\helpers\Url;
 ?>
 
 <section id="left-sidebar">
@@ -26,5 +27,9 @@ use kartik\icons\Icon;
 <!--        <li id="menu-item-featured" class="menu-item scroll"><span style="position: absolute">--><?//=Icon::show("plug",['class' => 'fa-1x'],Icon::FA)?><!--</span><a href="#featured">Помогай</a></li>-->
         <li id="menu-item-contact" class="menu-item scroll"><span style="position: absolute"><?=Icon::show("share-alt",['class' => 'fa-1x'],Icon::FA)?></span><a href="#contact">Предлагай</a></li>
     </ul>
+    <br>
+    <div class="alert alert-message text-center">
+        <a href="<?=Url::toRoute(['go-to-project'])?>">Войти в <?=Yii::$app->name?></a>
+    </div>
 
 </section>

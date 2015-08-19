@@ -11,7 +11,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'defaultRoute' => 'index/index',
+    'defaultRoute' => 'default/index',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'user' => [
@@ -32,11 +32,23 @@ return [
             'errorAction' => 'error/index',
         ],
         'urlManager' => $urlManager,
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'js'=>[]
+                ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js'=>[]
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [],
+                ],
+
+            ],
+        ],
     ],
     'params' => $params,
     'aliases' => [
         '@views' => dirname(__DIR__) . '/views',
-        //'@angular' => '@frontend/app',
-        //'@libs' => '@frontend/libs'
     ]
 ];

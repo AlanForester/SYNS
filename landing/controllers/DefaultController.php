@@ -16,6 +16,7 @@ use landing\components\LandingController;
 use landing\models\ContactForm;
 use Yii;
 use yii\helpers\Json;
+use yii\helpers\Url;
 
 class DefaultController extends LandingController
 {
@@ -51,6 +52,10 @@ class DefaultController extends LandingController
         } else {
             return Json::encode($model->getErrors());
         }
+    }
+
+    public function actionGoToProject() {
+        return $this->redirect(Url::to("http://".Yii::$app->params['frontendSite']));
     }
 
 }
