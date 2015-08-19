@@ -10,15 +10,15 @@ return [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => FALSE,
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.yandex.com',
-                'username' => 'timeshift@clevertek.org',
-                'password' => '842655',
-                'port' => '465',
-                'encryption' => 'ssl',
-            ],
+            'useFileTransport' => TRUE,
+//            'transport' => [
+//                'class' => 'Swift_SmtpTransport',
+//                'host' => 'smtp.yandex.com',
+//                'username' => 'timeshift@clevertek.org',
+//                'password' => '842655',
+//                'port' => '465',
+//                'encryption' => 'ssl',
+//            ],
             'messageConfig' => [
                 'charset' => 'UTF-8',
                 'from' => ['timeshift@clevertek.org' => 'TimeShift'],
