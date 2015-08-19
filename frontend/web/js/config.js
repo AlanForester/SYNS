@@ -1,11 +1,9 @@
-// config
-
-var app =  
+var app =
 angular.module('app')
   .config(
     [        '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
     function ($controllerProvider,   $compileProvider,   $filterProvider,   $provide) {
-        
+
         // lazy controller, directive and service
         app.controller = $controllerProvider.register;
         app.directive  = $compileProvider.directive;
@@ -22,7 +20,7 @@ angular.module('app')
     // Those urls are [prefix][langKey][suffix].
     $translateProvider.useStaticFilesLoader({
       prefix: 'l10n/',
-      suffix: '.js'
+      suffix: '.json'
     });
     // Tell the module what language to use by default
     $translateProvider.preferredLanguage('ru');

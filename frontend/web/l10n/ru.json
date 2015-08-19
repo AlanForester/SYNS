@@ -1,0 +1,70 @@
+{
+  "header": {
+    "navbar": {
+      "UPLOAD": "Загрузка",
+      "new": {
+        "NEW": "Новый",
+        "PROJECT": "Проекты",
+        "TASK": "Задача",
+        "USER": "Пользователь",
+        "EMAIL": "Email"
+      },
+      "NOTIFICATIONS": "Уведомления"
+    }
+  },
+  "aside": {
+    "nav": {
+      "HEADER": "Навигация",
+      "DASHBOARD": "Панель управления",
+      "CALENDAR": "Календарь",
+      "EMAIL": "Email",
+      "WIDGETS": "Виджеты",
+      "components": {
+        "COMPONENTS": "Компоненты",
+        "ui_kits": {
+          "UI_KITS": "UI инструменты",
+          "BUTTONS": "Кнопки",
+          "ICONS": "Иконки",
+          "GRID": "Сетка",
+          "BOOTSTRAP": "Загрузчик",
+          "SORTABLE": "Сортировка",
+          "PORTLET": "Портлеты",
+          "TIMELINE": "Таймлайн",
+          "VECTOR_MAP": "Векторная карта"
+        },
+        "table": {
+          "TABLE": "Таблица",
+          "TABLE_STATIC": "Статичная таблица",
+          "DATATABLE": "Таблица с данными",
+          "FOOTABLE": "Функциональная таблица"
+        },
+        "form": {
+          "FORM": "Форма",
+          "FORM_ELEMENTS": "Элементы формы",
+          "FORM_VALIDATION": "Валидация форм",
+          "FORM_WIZARD": "Мастер формы"
+        },
+        "CHART": "График",
+        "pages": {
+          "PAGES": "Страницы",
+          "PROFILE": "Профиль",
+          "POST": "Публикация",
+          "SEARCH": "Поиск",
+          "INVOICE": "Счет",
+          "LOCK_SCREEN": "Окно блокировки",
+          "SIGNIN": "Вход",
+          "SIGNUP": "Регистрация",
+          "FORGOT_PASSWORD": "Забыли пароль",
+          "404": "404"
+        }
+      },
+      "your_stuff": {
+        "YOUR_STUFF": "Подержка",
+        "PROFILE": "Профиль",
+        "DOCUMENTS": "Документы"
+      }
+    },
+    "MILESTONE": "Майлстон",
+    "RELEASE": "Выпуск"
+  }
+}

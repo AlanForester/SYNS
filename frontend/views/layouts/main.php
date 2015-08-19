@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use frontend\assets\FrontendAsset;
+use yii\helpers\Html;
 FrontendAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -10,16 +11,12 @@ FrontendAsset::register($this);
 <html lang="<?=Yii::$app->language?>" data-ng-app="app">
 <head>
     <meta charset="<?=Yii::$app->charset?>"/>
-    <title>Be Angular | Bootstrap Admin Web App with AngularJS</title>
+    <title><?=Html::encode($this->title)?></title>
+    <link rel="icon" type="image/png" href="favicon.ico">
     <meta name="description" content="<?= Yii::$app->params['projectDescription'] ?>"/>
     <meta name="author" content="<?= Yii::$app->params['projectAuthor'] ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="css/animate.css" type="text/css"/>
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
-    <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css"/>
-    <link rel="stylesheet" href="css/font.css" type="text/css"/>
-    <link rel="stylesheet" href="css/app.css" type="text/css"/>
+    <? $this->head(); ?>
 </head>
 <body ng-controller="AppCtrl">
 <?php $this->beginBody() ?>
@@ -27,3 +24,4 @@ FrontendAsset::register($this);
 <?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>

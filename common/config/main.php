@@ -1,6 +1,7 @@
 <?php
 return [
     'name' => 'TimeShift',
+    'language' => 'ru',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
