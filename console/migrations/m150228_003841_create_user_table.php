@@ -114,10 +114,6 @@ class m150228_003841_create_user_table extends Migration
              */
             'status' => Schema::TYPE_BOOLEAN . ' NOT NULL',
             /*
-             * Роль доступа пользователя
-             */
-            'access_id' => Schema::TYPE_INTEGER . ' NOT NULL',
-            /*
              * Время создания записи
              * в TimeStamp
              */
@@ -132,12 +128,6 @@ class m150228_003841_create_user_table extends Migration
         $this->addPrimaryKey("pk","{{%user}}",[
             'login'
         ]);
-
-        $this->addForeignKey("user_access","{{%user}}",[
-            'access_id'
-        ],"{{%access}}",[
-            'id'
-        ],"RESTRICT","CASCADE");
 
         $this->createIndex('email','{{%user}}','email',true);
         $this->createIndex('phone','{{%user}}','phone',true);

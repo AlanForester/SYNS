@@ -6,13 +6,17 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.4.0",
-    "yiisoft/yii2": ">=2.0.4",
+    "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap": "*",
     "yiisoft/yii2-swiftmailer": "*",
     "yiisoft/yii2-composer": "dev-master",
     "yiisoft/yii2-apidoc": "~2.0.0",
     "zf1/zend-http": "~1.12",
-    "kartik-v/yii2-icons": "dev-master"
+    "lajax/yii2-language-picker": "1.*",
+    "lajax/yii2-translate-manager": "1.*",
+    "wfstudioru/yii2-yandex-translate-api": "dev-master",
+    "kartik-v/yii2-icons": "dev-master",
+    "bizley/cookiemonster": "dev-master"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",

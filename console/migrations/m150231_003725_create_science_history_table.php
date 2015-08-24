@@ -29,11 +29,7 @@ class m150231_003725_create_science_history_table extends Migration
              * Ссылается на название науки
              * и язык сущности
              */
-            'science' => Schema::TYPE_STRING . ' NOT NULL',
-            /*
-            * Ссылка на язык
-            */
-            'lang_code' => Schema::TYPE_STRING . ' NOT NULL',
+            'science_id' => Schema::TYPE_DOUBLE . ' NOT NULL',
             /*
              * Изменяемый атрибут
              */
@@ -58,22 +54,13 @@ class m150231_003725_create_science_history_table extends Migration
         ],$tableOptions);
 
         $this->addPrimaryKey("pk","{{%science_history}}",[
-            'science',
-            'lang_code'
+            'science_id',
         ]);
 
         $this->addForeignKey("science_history_science","{{%science_history}}",[
-            'science',
-            'lang_code'
+            'science_id',
         ],"{{%science}}",[
-            'title',
-            'lang_code'
-        ]);
-
-        $this->addForeignKey("lang_code_history_science","{{%science_history}}",[
-            'lang_code',
-        ],"{{%science}}",[
-            'lang_code'
+            'id',
         ]);
 
         $this->addForeignKey("science_history_updated","{{%science_history}}",[

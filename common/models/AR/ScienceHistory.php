@@ -17,7 +17,7 @@ use common\models\AQ\ScienceHistoryQuery;
 /**
  * This is the model class for table "science_history".
  *
- * @property string $science
+ * @property double $science_id
  * @property string $lang_code
  * @property string $attribute
  * @property string $was_to
@@ -45,10 +45,10 @@ class ScienceHistory extends ActiveRecord
     public function rules()
     {
         return [
-            [['science', 'lang_code', 'attribute', 'was_to', 'become', 'updated_at', 'updated_by'], 'required'],
+            [['science_id', 'lang_code', 'attribute', 'was_to', 'become', 'updated_at', 'updated_by'], 'required'],
             [['was_to', 'become'], 'string'],
             [['updated_at'], 'integer'],
-            [['science', 'lang_code', 'attribute', 'updated_by'], 'string', 'max' => 255]
+            [['lang_code', 'attribute', 'updated_by'], 'string', 'max' => 255]
         ];
     }
 
@@ -58,7 +58,7 @@ class ScienceHistory extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'science' => Yii::t('app', 'Science'),
+            'science_id' => Yii::t('app', 'Science'),
             'lang_code' => Yii::t('app', 'Lang Code'),
             'attribute' => Yii::t('app', 'Attribute'),
             'was_to' => Yii::t('app', 'Was To'),
@@ -79,9 +79,9 @@ class ScienceHistory extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getScience0()
+    public function getScience()
     {
-        return $this->hasOne(Science::className(), ['title' => 'science', 'lang_code' => 'lang_code']);
+        return $this->hasOne(Science::className(), ['science_id' => 'id']);
     }
 
     /**

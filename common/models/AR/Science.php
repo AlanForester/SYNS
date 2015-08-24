@@ -17,6 +17,7 @@ use common\models\AQ\ScienceQuery;
 /**
  * This is the model class for table "science".
  *
+ * @property double $id
  * @property string $title
  * @property string $lang_code
  * @property string $description
@@ -27,9 +28,9 @@ use common\models\AQ\ScienceQuery;
  *
  * @property Chain[] $chains
  * @property Essence[] $essences
- * @property Lang $lang
+ * @property Language $lang
  * @property User $createdBy
- * @property Lang $langCode
+ * @property Language $langCode
  * @property ScienceHistory[] $scienceHistories
  * @property ScienceHistory $scienceHistory
  * @property User $user
@@ -52,7 +53,7 @@ class Science extends ActiveRecord
         return [
             [['title', 'lang_code', 'status', 'created_at', 'created_by'], 'required'],
             [['description'], 'string'],
-            [['rating', 'status', 'created_at'], 'integer'],
+            [['id', 'rating', 'status', 'created_at'], 'integer'],
             [['title', 'lang_code', 'created_by'], 'string', 'max' => 255]
         ];
     }
@@ -63,6 +64,7 @@ class Science extends ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => Yii::t('app', 'Title'),
             'title' => Yii::t('app', 'Title'),
             'lang_code' => Yii::t('app', 'Lang Code'),
             'description' => Yii::t('app', 'Description'),
@@ -94,7 +96,7 @@ class Science extends ActiveRecord
      */
     public function getLang()
     {
-        return $this->hasOne(Lang::className(), ['code' => 'lang_code']);
+        return $this->hasOne(Language::className(), ['code' => 'lang_code']);
     }
 
     /**
@@ -110,7 +112,7 @@ class Science extends ActiveRecord
      */
     public function getLangCode()
     {
-        return $this->hasOne(Lang::className(), ['code' => 'lang_code']);
+        return $this->hasOne(Language::className(), ['code' => 'lang_code']);
     }
 
     /**
@@ -126,7 +128,7 @@ class Science extends ActiveRecord
      */
     public function getScienceHistory()
     {
-        return $this->hasOne(ScienceHistory::className(), ['science' => 'title', 'lang_code' => 'lang_code']);
+        return $this->hasOne(ScienceHistory::className(), ['id' => 'science_id']);
     }
 
     /**

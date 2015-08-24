@@ -21,5 +21,8 @@ return [
             ],
         ],
     ],
+    'controllerMap' => [
+        'translate' => \lajax\translatemanager\commands\TranslatemanagerController::className()
+    ],
     'params' => $params,
 ];

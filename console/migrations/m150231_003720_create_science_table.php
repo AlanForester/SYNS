@@ -26,6 +26,7 @@ class m150231_003720_create_science_table extends Migration
         }
 
         $this->createTable("{{%science}}",[
+            'id' => Schema::TYPE_DOUBLE . ' NOT NULL',
             /*
              * Название науки
              */
@@ -33,7 +34,7 @@ class m150231_003720_create_science_table extends Migration
             /*
              * Код языка сущности
              */
-            'lang_code' => Schema::TYPE_STRING . ' NOT NULL',
+            'lang_code' => Schema::TYPE_STRING . '(5) NOT NULL',
             /*
              * Описание науки
              */
@@ -56,10 +57,14 @@ class m150231_003720_create_science_table extends Migration
             'created_by' => Schema::TYPE_STRING . ' NOT NULL'
         ],$tableOptions);
 
-        $this->addPrimaryKey("pk","{{%science}}",[
+        $this->addPrimaryKey('pk','{{%science}}',[
+            'id',
+        ]);
+
+        $this->createIndex('science',"{{%science}}",[
             'title',
             'lang_code'
-        ]);
+        ],true);
 
 
         $this->addForeignKey("science_created","{{%science}}",[
@@ -70,8 +75,8 @@ class m150231_003720_create_science_table extends Migration
 
         $this->addForeignKey('science_lang','{{%science}}',[
             'lang_code',
-        ],'{{%lang}}', [
-            'code'
+        ],'{{%language}}', [
+            'language_id'
         ],'RESTRICT','CASCADE');
     }
 

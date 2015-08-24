@@ -11,14 +11,14 @@
 namespace common\models\AQ;
 
 /**
- * This is the ActiveQuery class for [[\common\models\AR\Lang]].
+ * This is the ActiveQuery class for [[\common\models\AR\Language]].
  *
- * @see \common\models\AR\Lang
+ * @see \common\models\AR\Language
  */
 
 use common\components\ActiveQuery as BaseActiveQuery;
 
-class LangQuery extends BaseActiveQuery
+class LanguageQuery extends BaseActiveQuery
 {
     /*public function active()
     {
@@ -28,7 +28,7 @@ class LangQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \common\models\AR\Lang[]|array
+     * @return \common\models\AR\Language[]|array
      */
     public function all($db = null)
     {
@@ -37,7 +37,7 @@ class LangQuery extends BaseActiveQuery
 
     /**
      * @inheritdoc
-     * @return \common\models\AR\Lang|array|null
+     * @return \common\models\AR\Language|array|null
      */
     public function one($db = null)
     {
