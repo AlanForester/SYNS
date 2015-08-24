@@ -12,7 +12,6 @@
     "yiisoft/yii2-composer": "dev-master",
     "yiisoft/yii2-apidoc": "~2.0.0",
     "zf1/zend-http": "~1.12",
-    "nizsheanez/yii2-asset-converter": "1.2.7",
     "kartik-v/yii2-icons": "dev-master"
   },
   "require-dev": {
