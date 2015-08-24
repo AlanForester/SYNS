@@ -14,7 +14,7 @@ use yii\web\View;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class FrontendAsset extends AssetBundle
+class DefaultAsset extends AssetBundle
 {
     public $sourcePath = '@webroot';
 

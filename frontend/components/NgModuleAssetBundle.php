@@ -40,7 +40,7 @@ class NgModuleAssetBundle extends AssetBundle
             $config = json_decode($jsonConfig, true);
             if (isset($config['js']))
                 $this->js = $config['js'];
-            if (isset($config['js']))
+            if (isset($config['css']))
                 $this->css = $config['css'];
         }
     }

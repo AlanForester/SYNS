@@ -35,6 +35,7 @@ return [
         'assetManager' => [
             'linkAssets' => true,
             'forceCopy' => true,
+            'converter' => [],
             'bundles' => [
                 'yii\web\JqueryAsset' => [
                     'js'=>[]

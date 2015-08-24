@@ -10,20 +10,24 @@
 
 namespace app\controllers;
 
-
-use app\components\FrontendController;
+use common\models\AR\Essence;
+use Yii;
+use common\models\AR\Science;
+use frontend\components\FrontendController;
 
 class ScienceController extends FrontendController
 {
 
     public function actionIndex($science)
     {
-        return $this->render("index.haml",['model' => $science]);
+        $model = Science::findOne(['title' => $science, 'lang_code' => Yii::$app->language]);
+        return $this->render("index",['science' => $model]);
     }
 
     public function actionCommon()
     {
-        return $this->render("common.haml");
+        $models = Science::findAll(['lang_code' => Yii::$app->language]);
+        return $this->render("common",['sciences' => $models]);
     }
 
 }
