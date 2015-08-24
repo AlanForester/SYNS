@@ -16,34 +16,9 @@ use yii\web\View;
  */
 class FrontendAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
-
-    public $css = [
-        'css/bootstrap.css',
-        'css/animate.css',
-        'css/font-awesome.min.css',
-        'css/simple-line-icons.css',
-        'css/font.css',
-        'css/app.css'
-    ];
+    public $sourcePath = '@webroot';
 
     public $js = [
-        '/vendor/jquery/jquery.min.js',
-        '/vendor/angular/angular.js',
-        'vendor/angular/angular-animate/angular-animate.js',
-        'vendor/angular/angular-cookies/angular-cookies.js',
-        'vendor/angular/angular-resource/angular-resource.js',
-        'vendor/angular/angular-sanitize/angular-sanitize.js',
-        'vendor/angular/angular-touch/angular-touch.js',
-        'vendor/angular/angular-ui-router/angular-ui-router.js',
-        'vendor/angular/ngstorage/ngStorage.js',
-        'vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js',
-        'vendor/angular/oclazyload/ocLazyLoad.js',
-        'vendor/angular/angular-translate/angular-translate.js',
-        'vendor/angular/angular-translate/loader-static-files.js',
-        'vendor/angular/angular-translate/storage-cookie.js',
-        'vendor/angular/angular-translate/storage-local.js',
         'js/app.js',
         'js/config.js',
         'js/config.lazyload.js',
@@ -63,6 +38,11 @@ class FrontendAsset extends AssetBundle
         'js/directives/ui-toggleclass.js',
         'js/directives/ui-validate.js',
         'js/controllers/bootstrap.js'
+    ];
+
+    public $depends = [
+        'frontend\assets\common\CoreAsset',
+        'frontend\assets\common\NgAsset'
     ];
 
     public function init()

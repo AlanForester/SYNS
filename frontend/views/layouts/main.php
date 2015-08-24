@@ -3,8 +3,10 @@
 /* @var $content string */
 
 use frontend\assets\FrontendAsset;
+use frontend\components\NgModuleAssetBundle;
 use yii\helpers\Html;
 FrontendAsset::register($this);
+NgModuleAssetBundle::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
