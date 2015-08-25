@@ -8,3 +8,4 @@ SYNS application
 <br> *./init*
 <br> *composer install*
 <br> *./yii migrate/up*
+<br> Apply patch yii-unsafe.patch

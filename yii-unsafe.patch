@@ -1,0 +1,247 @@
+From 20e57998722e3f067a9ef5dad9e6eaf281927147 Mon Sep 17 00:00:00 2001
+From: mdmunir <misbahuldmunir@gmail.com>
+Date: Tue, 21 Apr 2015 09:29:41 +0700
+Subject: [PATCH 1/2] Enh #8139: Added unsafe validator
+
+---
+ framework/CHANGELOG.md             |  1 +
+ framework/base/Model.php           | 20 +++++++---
+ framework/validators/Validator.php | 11 ++++++
+ tests/framework/base/ModelTest.php | 77 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 103 insertions(+), 6 deletions(-)
+
+diff --git a/framework/CHANGELOG.md b/framework/CHANGELOG.md
+index b595280..94cbee2 100644
+--- a/framework/CHANGELOG.md
++++ b/framework/CHANGELOG.md
+@@ -49,6 +49,7 @@ Yii Framework 2 Change Log
+ - Enh #8055: `yii\rest\UrlRule::extraPatterns` should take precedence over `patterns` (Agrumas)
+ - Enh #8064: Added ability to remove containing menu tag by setting `yii\widgets\Menu::$options['tag']` to `false` (kirsenn, samdark)
+ - Enh #8078: 'links' and 'meta' envelope names are now configurable at `yii\rest\Serializer` (arturf)
++- Enh #8139: Added unsafe validator (mdmunir)
+ - Enh: Added `yii\helper\Console::wrapText()` method to wrap indented text by console window width and used it in `yii help` command (cebe)
+ - Enh: Implement batchInsert for oci (nineinchnick)
+ - Enh: Detecting IntegrityException for oci (nineinchnick)
+diff --git a/framework/base/Model.php b/framework/base/Model.php
+index 4f17e33..1ced580 100644
+--- a/framework/base/Model.php
++++ b/framework/base/Model.php
+@@ -192,37 +192,45 @@ public function scenarios()
+         $names = array_keys($scenarios);
+
+         foreach ($this->getValidators() as $validator) {
++            $safe = $validator->safe;
+             if (empty($validator->on) && empty($validator->except)) {
+                 foreach ($names as $name) {
+                     foreach ($validator->attributes as $attribute) {
+-                        $scenarios[$name][$attribute] = true;
++                        if(!isset($scenarios[$name][$attribute]) || !$safe){
++                            $scenarios[$name][$attribute] = $safe;
++                        }
+                     }
+                 }
+             } elseif (empty($validator->on)) {
+                 foreach ($names as $name) {
+                     if (!in_array($name, $validator->except, true)) {
+                         foreach ($validator->attributes as $attribute) {
+-                            $scenarios[$name][$attribute] = true;
++                            if(!isset($scenarios[$name][$attribute]) || !$safe){
++                                $scenarios[$name][$attribute] = $safe;
++                            }
+                         }
+                     }
+                 }
+             } else {
+                 foreach ($validator->on as $name) {
+                     foreach ($validator->attributes as $attribute) {
+-                        $scenarios[$name][$attribute] = true;
++                        if(!isset($scenarios[$name][$attribute]) || !$safe){
++                            $scenarios[$name][$attribute] = $safe;
++                        }
+                     }
+                 }
+             }
+         }
+-
+         foreach ($scenarios as $scenario => $attributes) {
+             if (empty($attributes) && $scenario !== self::SCENARIO_DEFAULT) {
+                 unset($scenarios[$scenario]);
+             } else {
+-                $scenarios[$scenario] = array_keys($attributes);
++                $scenarios[$scenario] = [];
++                foreach ($attributes as $attribute => $safe) {
++                    $scenarios[$scenario][] = ($safe ? '' : '!') . $attribute;
++                }
+             }
+         }
+-
+         return $scenarios;
+     }
+
+diff --git a/framework/validators/Validator.php b/framework/validators/Validator.php
+index 63af9b7..41534ca 100644
+--- a/framework/validators/Validator.php
++++ b/framework/validators/Validator.php
+@@ -41,6 +41,7 @@
+  * - `string`: [[StringValidator]]
+  * - `trim`: [[FilterValidator]]
+  * - `unique`: [[UniqueValidator]]
++ * - `unsafe`: [[UnsafeValidator]]
+  * - `url`: [[UrlValidator]]
+  *
+  * @author Qiang Xue <qiang.xue@gmail.com>
+@@ -80,6 +81,10 @@ class Validator extends Component
+             'skipOnArray' => true,
+         ],
+         'unique' => 'yii\validators\UniqueValidator',
++        'unsafe' => [
++            'class' => 'yii\validators\SafeValidator',
++            'safe' => false,
++        ],
+         'url' => 'yii\validators\UrlValidator',
+     ];
+     /**
+@@ -172,6 +177,12 @@ class Validator extends Component
+      * @see when
+      */
+     public $whenClient;
++	/**
++	 * @var boolean whether attributes listed with this validator should be considered safe for massive assignment.
++	 * Defaults to true.
++	 * @since 2.0.4
++	 */
++	public $safe = true;
+
+
+     /**
+diff --git a/tests/framework/base/ModelTest.php b/tests/framework/base/ModelTest.php
+index 16953e9..4322822 100644
+--- a/tests/framework/base/ModelTest.php
++++ b/tests/framework/base/ModelTest.php
+@@ -296,6 +296,47 @@ public function testCreateValidators()
+         $invalid = new InvalidRulesModel();
+         $invalid->createValidators();
+     }
++
++    public function testUnsafeValidator()
++    {
++        $scenarios = [
++            'default' => ['id', 'name', 'is_disabled'],
++            'update' => ['id', 'name', 'is_disabled', 'status'],
++            'anotherScenario' => ['id', 'name', '!is_disabled'],
++        ];
++        $model = new ComplexModel3();
++        $this->assertEquals($scenarios, $model->scenarios());
++
++        // massive assigment
++        $data = ['id'=>1, 'name'=>'M Munir', 'is_disabled'=>true, 'status'=>10];
++        $model = new ComplexModel3();
++        $model->setAttributes($data);
++        $this->assertNotNull($model->is_disabled);
++        $this->assertNull($model->status);
++
++        $model = new ComplexModel3();
++        $model->setScenario('update');
++        $model->setAttributes($data);
++        $this->assertNotNull($model->is_disabled);
++        $this->assertNotNull($model->status);
++
++        $model = new ComplexModel3();
++        $model->setScenario('anotherScenario');
++        $model->setAttributes($data);
++        $this->assertNull($model->is_disabled);
++        $this->assertNull($model->status);
++
++        // complex rule
++        $scenarios = [
++            'default' => ['!id', '!name', 'description', 'status'],
++            'suddenlyUnexpectedScenario' => ['!name', 'description', 'status', '!id'],
++            'administration' => ['!id', '!name', 'description', 'status', 'is_disabled'],
++            'anotherScenario' => ['!id', '!name', '!description', 'status'],
++        ];
++        $model = new ComplexModel4();
++        $this->assertEquals($scenarios, $model->scenarios());
++
++    }
+ }
+
+ class ComplexModel1 extends Model
+@@ -321,3 +362,39 @@ public function rules()
+         ];
+     }
+ }
++
++class ComplexModel3 extends Model
++{
++    public $id;
++    public $name;
++    public $status;
++    public $is_disabled;
++    public function rules()
++    {
++        return [
++            [['id', 'name', 'is_disabled'], 'required'],
++            [['status'], 'safe', 'on' => 'update'],
++            [['is_disabled'], 'unsafe', 'on' => 'anotherScenario'],
++        ];
++    }
++}
++
++class ComplexModel4 extends Model
++{
++    public $id;
++    public $name;
++    public $description;
++    public $status;
++    public $is_disabled;
++    public function rules()
++    {
++        return [
++            [['id'], 'required', 'except' => 'suddenlyUnexpectedScenario'],
++            [['name', 'description'], 'filter', 'filter' => 'trim'],
++            [['status'], 'integer'],
++            [['is_disabled'], 'boolean', 'on' => 'administration'],
++            [['id', 'name'], 'unsafe'],
++            [['description'], 'unsafe', 'on' => 'anotherScenario'],
++        ];
++    }
++}
+
+From a04b5d0f4b8045eac3a0166bfeb4398839ddbe72 Mon Sep 17 00:00:00 2001
+From: mdmunir <misbahuldmunir@gmail.com>
+Date: Thu, 28 May 2015 18:07:24 +0700
+Subject: [PATCH 2/2] Merge branch 'master' of https://github.com/yiisoft/yii2
+ into 8139-added-unsafe-validator
+
+---
+ framework/CHANGELOG.md   | 1 +
+ framework/base/Model.php | 4 +---
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/framework/CHANGELOG.md b/framework/CHANGELOG.md
+index 837f9f6..d17ef2b 100644
+--- a/framework/CHANGELOG.md
++++ b/framework/CHANGELOG.md
+@@ -18,6 +18,7 @@ Yii Framework 2 Change Log
+ - Enh #6043: Specification for 'class' and 'style' in array format added to `yii\helpers\Html` (klimov-paul)
+ - Enh #7169: `yii\widgets\ActiveField` now uses corresponding methods for default parts rendering (klimov-paul)
+ - Enh #8070: `yii\console\controllers\MessageController` now sorts created messages, even if there is no new one, while saving to PHP file (klimov-paul)
++- Enh #8139: Added unsafe validator (mdmunir)
+ - Enh #8286: `yii\console\controllers\MessageController` improved allowing extraction of nested translator calls (klimov-paul)
+ - Enh #8415: `yii\helpers\Html` allows correct rendering of conditional comments containing `!IE` (salaros, klimov-paul)
+ - Enh #8444:  Added `yii\widgets\LinkPager::$linkOptions` to allow configuring HTML attributes of the `a` tags (zinzinday)
+diff --git a/framework/base/Model.php b/framework/base/Model.php
+index 5e13ff2..a3b2c04 100644
+--- a/framework/base/Model.php
++++ b/framework/base/Model.php
+@@ -223,9 +223,7 @@ public function scenarios()
+             }
+         }
+         foreach ($scenarios as $scenario => $attributes) {
+-            if (empty($attributes) && $scenario !== self::SCENARIO_DEFAULT) {
+-                unset($scenarios[$scenario]);
+-            } else {
++            if (!empty($attributes)) {
+                 $scenarios[$scenario] = [];
+                 foreach ($attributes as $attribute => $safe) {
+                     $scenarios[$scenario][] = ($safe ? '' : '!') . $attribute;
