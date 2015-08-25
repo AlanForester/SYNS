@@ -99,19 +99,21 @@ class m150228_003531_create_translate_and_language_tables extends Migration
 
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
         $this->createTable('{{%language}}', [
             'language_id' => $this->string(5)->notNull(),
-            'language' => Schema::TYPE_STRING . '(3) NOT NULL',
-            'country' => Schema::TYPE_STRING . '(3) NOT NULL',
-            'name' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'name_ascii' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'status' => Schema::TYPE_SMALLINT . ' NOT NULL',
-            'PRIMARY KEY (language_id)'
+            'language' => $this->string(3)->notNull(),
+            'country' => $this->string(3)->notNull(),
+            'name' => $this->string(32)->notNull(),
+            'name_ascii' => $this->string(32)->notNull(),
+            'status' => $this->smallInteger()->notNull(),
         ], $tableOptions);
+
+        $this->addPrimaryKey('pk',"{{%language}}",[
+            'language_id'
+        ]);
 
         $this->batchInsert('{{%language}}', [
             'language_id',
@@ -123,22 +125,35 @@ class m150228_003531_create_translate_and_language_tables extends Migration
         ], $this->languages);
 
         $this->createTable('{{%language_source}}', [
-            'id' => Schema::TYPE_PK,
-            'category' => Schema::TYPE_STRING . '(32) DEFAULT NULL',
-            'message' => Schema::TYPE_TEXT
+            'id' => $this->bigPrimaryKey(),
+            'category' => $this->string(32),
+            'message' => $this->text(),
         ], $tableOptions);
 
         $this->createTable('{{%language_translate}}', [
-            'id' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'language' => Schema::TYPE_STRING . '(5) NOT NULL',
-            'translation' => Schema::TYPE_TEXT,
-            'PRIMARY KEY (id, language)'
+            'id' => $this->bigInteger()->notNull(),
+            'language' => $this->string(5)->notNull(),
+            'translation' => $this->text(),
         ], $tableOptions);
+
+        $this->addPrimaryKey('pk',"{{%language_translate}}",[
+            'id',
+            'language'
+        ]);
 
         $this->createIndex('language_translate_idx_language', '{{%language_translate}}', 'language');
 
-        $this->addForeignKey('language_translate_ibfk_1', '{{%language_translate}}', ['language'], '{{%language}}', ['language_id'], 'CASCADE', 'CASCADE');
-        $this->addForeignKey('language_translate_ibfk_2', '{{%language_translate}}', ['id'], '{{%language_source}}', ['id'], 'CASCADE', 'CASCADE');
+        $this->addForeignKey('language_translate_ibfk_1', '{{%language_translate}}', [
+            'language'
+        ], '{{%language}}', [
+            'language_id'
+        ], 'CASCADE', 'CASCADE');
+
+        $this->addForeignKey('language_translate_ibfk_2', '{{%language_translate}}', [
+            'id'
+        ], '{{%language_source}}', [
+            'id'
+        ], 'CASCADE', 'CASCADE');
     }
 
     public function down() {

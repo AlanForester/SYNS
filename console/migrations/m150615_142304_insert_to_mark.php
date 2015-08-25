@@ -9,11 +9,11 @@
 
 use yii\db\Migration;
 
-class m150615_142304_insert_to_essence extends Migration
+class m150615_142304_insert_to_mark extends Migration
 {
     public function up()
     {
-        $this->batchInsert("{{%essence}}", [
+        $this->batchInsert("{{%mark}}", [
             'id',
             'title',
             'science_by',

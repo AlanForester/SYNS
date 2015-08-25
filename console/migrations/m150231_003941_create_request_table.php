@@ -10,7 +10,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150727_204706_create_request_table extends Migration
+class m150231_003941_create_request_table extends Migration
 {
     public function up()
     {

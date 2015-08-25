@@ -29,99 +29,99 @@ class m150228_003841_create_user_table extends Migration
              * Идентификатор пользователя или логин
              *
              */
-            'login' => Schema::TYPE_STRING . ' NOT NULL',
+            'login' => $this->string(128)->notNull(),
             /*
              * Почта пользователя
              * Уникальный индекс
              */
-            'email' => Schema::TYPE_STRING . ' NOT NULL',
+            'email' => $this->string(128)->notNull(),
             /*
              * Телефон пользователя
              * Уникальный индекс
              */
-            'phone' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
+            'phone' => $this->string(64),
             /*
              * Имя пользователя
              */
-            'name' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
+            'name' => $this->string(255),
             /*
              * Фамилия пользователя
              */
-            'surname' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
+            'surname' => $this->string(255),
             /*
              * Отчество пользователя
              */
-            'last_name' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
+            'last_name' => $this->string(255),
             /*
              * Дата рождения пользователя
              * в TimeStamp представлении
              */
-            'birthday' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
+            'birthday' => $this->dateTime()->defaultValue(0),
             /*
              * Страна пользователя
              */
-            'country' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'country' => $this->string(255),
             /*
              * Область пользователя
              */
-            'zone' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'zone' => $this->string(255),
             /*
              * Город пользователя
              */
-            'city' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'city' => $this->string(255),
             /*
              * Район города пользователя
              */
-            'area' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'area' => $this->string(255),
             /*
              * Улица города пользователя
              */
-            'street' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'street' => $this->string(255),
             /*
              * Строение(дом) улицы пользователя
              */
-            'build' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'build' => $this->string(255),
             /*
              * Квартира дома пользователя
              */
-            'flat' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'flat' => $this->string(255),
             /*
              * Ключ авторизации пользователя
              * Используется во фронтенде,
              * а так же в РЕСТ сервисе
              */
-            'auth_key' => Schema::TYPE_STRING . '(128) NOT NULL',
+            'auth_key' => $this->string(128),
             /*
              * Хеш пароля пользователя
              * Генерируется средствами
              * фреймворка
              */
-            'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
+            'password_hash' => $this->string(255)->notNull(),
             /*
              * Токен восстановления пароля
              * Генерируется при восстановлении
              * пароля пользователем, который отправляется
              * на его почту для дальнейшей валидации
              */
-            'password_reset_token' => Schema::TYPE_STRING . ' NULL',
+            'password_reset_token' => $this->string(128),
             /*
              * Рейтинг пользователя
              */
-            'rating' => Schema::TYPE_BIGINT . ' NULL DEFAULT 0',
+            'rating' => $this->bigInteger()->defaultValue(0),
             /*
              * Глобальный статус активности строки
              */
-            'status' => Schema::TYPE_BOOLEAN . ' NOT NULL',
+            'status' => $this->boolean()->defaultValue(1),
             /*
              * Время создания записи
              * в TimeStamp
              */
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'created_at' => $this->timestamp()->defaultValue("NOW()"),
             /*
              * Время обновления записи
              * в TimeStamp
              */
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0',
+            'updated_at' => $this->timestamp()->defaultValue("NOW()"),
         ], $tableOptions);
 
         $this->addPrimaryKey("pk","{{%user}}",[

@@ -34,8 +34,8 @@ class m150615_092929_insert_to_user extends Migration
             'password_reset_token' => new Expression('NULL'),
             'rating' => 0,
             'status' => true,
-            'created_at' => time(),
-            'updated_at' => time(),
+            'created_at' => new Expression('NOW'),
+            'updated_at' => new Expression('NOW'),
         ]);
     }
 

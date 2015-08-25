@@ -25,46 +25,46 @@ class m150231_003726_create_mark_table extends Migration
         }
 
         $this->createTable('{{%mark}}', [
-            'id' => Schema::TYPE_DOUBLE . ' NOT NULL',
+            'id' => $this->double()->notNull(),
             /*
              * Название сущности
              * Уникально совместно с наукой
              * сущности
              */
-            'title' => Schema::TYPE_STRING . ' NOT NULL COLLATE utf8_unicode_ci',
+            'title' => $this->string(255)->notNull(),
             /*
              * Код языка сущности
              */
-            'lang_code' => $this->string(5) . ' NOT NULL',
+            'lang_code' => $this->string(5)->notNull(),
             /*
              * Описание сущности
              * Временное поле
              * В дальнейшем генирируется автоматически
              */
-            'description' => Schema::TYPE_TEXT . ' NULL DEFAULT ""',
+            'description' => $this->text()->notNull()->defaultValue(""),
             /*
              * Представление сущности в
              * виде изображения
              */
-            'image' => Schema::TYPE_TEXT . ' NULL DEFAULT ""',
+            'image' => $this->text()->notNull()->defaultValue(""),
             /*
              * Статус включенности сущности
              */
-            'status' => Schema::TYPE_BOOLEAN . ' NOT NULL',
+            'status' => $this->boolean()->notNull()->defaultValue(1),
             /*
              * Рейтинг сущности
              */
-            'rating' => Schema::TYPE_BIGINT . ' NOT NULL DEFAULT 0',
+            'rating' => $this->bigInteger()->notNull()->defaultValue(0),
             /*
              * Время создания сущности
              * в TimeStamp
              */
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'created_at' => $this->timestamp()->defaultValue("NOW()"),
             /*
              * Создатель сущности
              * ссылается на пользователя
              */
-            'created_by' => Schema::TYPE_STRING . ' NOT NULL',
+            'created_by' => $this->string(255)->notNull(),
         ], $tableOptions);
 
         $this->addPrimaryKey('pk','{{%mark}}',[

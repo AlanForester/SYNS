@@ -4,7 +4,7 @@ use yii\db\Migration;
 use yii\rbac\DbManager;
 use yii\base\InvalidConfigException;
 
-class m150824_203653_override_rbac_tables extends Migration
+class m150231_003943_create_access_tables extends Migration
 {
     /**
      * @throws yii\base\InvalidConfigException

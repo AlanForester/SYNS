@@ -15,6 +15,7 @@ class m150231_003733_create_process_table extends Migration
         $this->createTable("{{%process}}",[
             'label' => $this->string(255)->notNull(),
             'description' => $this->text()->defaultValue(""),
+            'status' => $this->boolean()->defaultValue(1),
         ],$tableOptions);
     }
 
