@@ -27,10 +27,9 @@ class m150228_003841_create_user_table extends Migration
         $this->createTable('{{%user}}', [
             /*
              * Идентификатор пользователя или логин
-             * По умолчанию генерируется исходя из уникального
-             * email данной таблицы обернутого в md5()
+             *
              */
-            'login' => Schema::TYPE_STRING . ' DEFAULT NULL',
+            'login' => Schema::TYPE_STRING . ' NOT NULL',
             /*
              * Почта пользователя
              * Уникальный индекс

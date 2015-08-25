@@ -1,9 +1,15 @@
 <?php
-
+/**
+ * Date: 22.04.15
+ * Project: TimeShift
+ * Developer: Alex Collin <alex@collin.su>
+ *
+ * Copyright by "CleverTek LLC" 2014-2015
+ */
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150228_003531_override_translate_tables extends Migration
+class m150228_003531_create_translate_and_language_tables extends Migration
 {
     /**
      * @var array The language table contains the list of languages.
@@ -22,7 +28,7 @@ class m150228_003531_override_translate_tables extends Migration
         ['da-DK', 'da', 'dk', 'Dansk', 'Danish', 0],
         ['de-DE', 'de', 'de', 'Deutsch', 'German', 0],
         ['el-GR', 'el', 'gr', 'Ελληνικά', 'Greek', 0],
-        ['en-GB', 'en', 'gb', 'English (UK)', 'English (UK)', 1],
+        ['en-GB', 'en', 'gb', 'English (UK)', 'English (UK)', 0],
         ['en-PI', 'en', 'pi', 'English (Pirate)', 'English (Pirate)', 0],
         ['en-UD', 'en', 'ud', 'English (Upside Down)', 'English (Upside Down)', 0],
         ['en-US', 'en', 'us', 'English (US)', 'English (US)', 1],
@@ -69,7 +75,7 @@ class m150228_003531_override_translate_tables extends Migration
         ['pt-BR', 'pt', 'br', 'Português (Brasil)', 'Portuguese (Brazil)', 0],
         ['pt-PT', 'pt', 'pt', 'Português (Portugal)', 'Portuguese (Portugal)', 0],
         ['ro-RO', 'ro', 'ro', 'Română', 'Romanian', 0],
-        ['ru-RU', 'ru', 'ru', 'Русский', 'Russian', 0],
+        ['ru-RU', 'ru', 'ru', 'Русский', 'Russian', 1],
         ['sk-SK', 'sk', 'sk', 'Slovenčina', 'Slovak', 0],
         ['sl-SI', 'sl', 'si', 'Slovenščina', 'Slovenian', 0],
         ['sq-AL', 'sq', 'al', 'Shqip', 'Albanian', 0],
@@ -98,7 +104,7 @@ class m150228_003531_override_translate_tables extends Migration
         }
 
         $this->createTable('{{%language}}', [
-            'language_id' => Schema::TYPE_STRING . '(5) NOT NULL',
+            'language_id' => $this->string(5)->notNull(),
             'language' => Schema::TYPE_STRING . '(3) NOT NULL',
             'country' => Schema::TYPE_STRING . '(3) NOT NULL',
             'name' => Schema::TYPE_STRING . '(32) NOT NULL',

@@ -25,7 +25,7 @@ class m150231_003931_create_chain_table extends Migration
         }
 
         $this->createTable("{{%chain}}",[
-            'id' => Schema::TYPE_DOUBLE . ' NOT NULL',
+            'id' => $this->double()->notNull(),
             /*
              * Степень объекта в графе и ее схема
              */
@@ -35,15 +35,11 @@ class m150231_003931_create_chain_table extends Migration
              */
             'status' => Schema::TYPE_BOOLEAN . ' NOT NULL',
             /*
-             * Наука звена эволюции
-             */
-            'science_by' => Schema::TYPE_STRING . ' NOT NULL',
-            /*
              * Сама сущность
              * Поколение наследующее свойства родителей
              * совместно с действием как результат генерации
              */
-            'essence_by' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
+            'mark_by' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
             /*
              * орудие, инструмент, принадлежность, принадлежности, прибор
              *
@@ -56,6 +52,7 @@ class m150231_003931_create_chain_table extends Migration
              */
             'implement_of' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
             'implement_rank' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
+            'implement_process' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
             /*
              * двигатель
              *
@@ -69,6 +66,7 @@ class m150231_003931_create_chain_table extends Migration
              */
             'engine_of' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
             'engine_rank' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
+            'engine_process' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
             /*
              * поколение, генерация, образование, генерирование, новая ступень развития
              *
@@ -81,6 +79,7 @@ class m150231_003931_create_chain_table extends Migration
              */
             'generation_to' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
             'generation_rank' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
+            'generation_process' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
             /*
              * распад, измельчение, дезинтеграция, разрушение, раздробление
              *
@@ -92,6 +91,9 @@ class m150231_003931_create_chain_table extends Migration
              */
             'disintegration_to' => Schema::TYPE_STRING . ' NULL DEFAULT NULL',
             'disintegration_rank' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
+            'disintegration_process' => Schema::TYPE_INTEGER . ' NULL DEFAULT 0',
+
+            'extra' => $this->text()->defaultValue(""),
 
         ],$tableOptions);
 
@@ -101,59 +103,42 @@ class m150231_003931_create_chain_table extends Migration
 
         $this->createIndex('link','{{%chain}}',[
             'scheme_by',
-            'science_by'
         ],true);
 
         $this->addForeignKey('chain_scheme','{{%chain}}',[
             'scheme_by',
         ],'{{%scheme}}', [
-            'degree'
+            'id'
         ],'RESTRICT','CASCADE');
 
-        $this->addForeignKey('chain_science','{{%chain}}',[
-            'science_by',
-        ],'{{%science}}', [
-            'title'
-        ],'RESTRICT','CASCADE');
-
-        $this->addForeignKey('link_essence','{{%chain}}',[
-            'essence_by',
-            'science_by'
-        ],'{{%essence}}', [
-            'title',
-            'science_by'
+        $this->addForeignKey('link_mark','{{%chain}}',[
+            'mark_by',
+        ],'{{%mark}}', [
+            'id',
         ],'RESTRICT','CASCADE');
 
         $this->addForeignKey('link_implement','{{%chain}}',[
             'implement_of',
-            'science_by'
-        ],'{{%essence}}', [
-            'title',
-            'science_by'
+        ],'{{%mark}}', [
+            'id',
         ],'RESTRICT','CASCADE');
 
         $this->addForeignKey('link_engine','{{%chain}}',[
             'engine_of',
-            'science_by'
-        ],'{{%essence}}', [
-            'title',
-            'science_by'
+        ],'{{%mark}}', [
+            'id',
         ],'RESTRICT','CASCADE');
 
         $this->addForeignKey('link_generation','{{%chain}}',[
             'generation_to',
-            'science_by'
-        ],'{{%essence}}', [
-            'title',
-            'science_by'
+        ],'{{%mark}}', [
+            'id',
         ],'RESTRICT','CASCADE');
 
         $this->addForeignKey('link_disintegration','{{%chain}}',[
             'disintegration_to',
-            'science_by'
-        ],'{{%essence}}', [
-            'title',
-            'science_by'
+        ],'{{%mark}}', [
+            'id',
         ],'RESTRICT','CASCADE');
 
     }

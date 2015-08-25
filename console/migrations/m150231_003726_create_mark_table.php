@@ -11,11 +11,11 @@ use yii\db\Schema;
 use yii\db\Migration;
 
 /**
- * Class m150231_003731_create_essence_table
+ * Class m150231_003726_create_mark_table
  *
  * Таблица для хранения сущностей
  */
-class m150231_003731_create_essence_table extends Migration
+class m150231_003726_create_mark_table extends Migration
 {
     public function up()
     {
@@ -24,7 +24,7 @@ class m150231_003731_create_essence_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%essence}}', [
+        $this->createTable('{{%mark}}', [
             'id' => Schema::TYPE_DOUBLE . ' NOT NULL',
             /*
              * Название сущности
@@ -33,9 +33,9 @@ class m150231_003731_create_essence_table extends Migration
              */
             'title' => Schema::TYPE_STRING . ' NOT NULL COLLATE utf8_unicode_ci',
             /*
-             * Наука сущности
+             * Код языка сущности
              */
-            'science_by' => Schema::TYPE_STRING . ' NOT NULL',
+            'lang_code' => $this->string(5) . ' NOT NULL',
             /*
              * Описание сущности
              * Временное поле
@@ -67,27 +67,27 @@ class m150231_003731_create_essence_table extends Migration
             'created_by' => Schema::TYPE_STRING . ' NOT NULL',
         ], $tableOptions);
 
-        $this->addPrimaryKey('pk','{{%essence}}',[
+        $this->addPrimaryKey('pk','{{%mark}}',[
             'id',
         ]);
 
-        $this->createIndex('essence','{{%essence}}',[
+        $this->createIndex('mark','{{%mark}}',[
             'title',
-            'science_by'
+            'lang_code'
         ],true);
 
 
 
-        $this->addForeignKey('essence_created','{{%essence}}',[
+        $this->addForeignKey('mark_created','{{%mark}}',[
             'created_by',
         ],'{{%user}}', [
             'login'
         ],'RESTRICT','CASCADE');
 
-        $this->addForeignKey('essence_science','{{%essence}}',[
-            'science_by',
-        ],'{{%science}}', [
-            'title'
+        $this->addForeignKey('mark_lang','{{%mark}}',[
+            'lang_code',
+        ],'{{%language}}', [
+            'language_id'
         ],'RESTRICT','CASCADE');
 
 
@@ -95,6 +95,6 @@ class m150231_003731_create_essence_table extends Migration
 
     public function down()
     {
-        $this->dropTable('{{%essence}}');
+        $this->dropTable('{{%mark}}');
     }
 }

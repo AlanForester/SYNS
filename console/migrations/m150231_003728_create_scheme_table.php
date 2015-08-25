@@ -11,9 +11,9 @@ use yii\db\Schema;
 use yii\db\Migration;
 
 /**
- * Class m150231_003920_create_scheme_table
+ * Class m150231_003728_create_scheme_table
  */
-class m150231_003920_create_scheme_table extends Migration
+class m150231_003728_create_scheme_table extends Migration
 {
     public function up()
     {
@@ -24,7 +24,9 @@ class m150231_003920_create_scheme_table extends Migration
         }
 
         $this->createTable("{{%scheme}}",[
-            'degree' => Schema::TYPE_DOUBLE . " NOT NULL",
+            'id' => $this->double()->notNull(),
+            'measure' => $this->integer(11)->notNull(),
+            'degree' => $this->integer(11)->notNull(),
             /*
              * Абцисса
              * Ордината
@@ -39,9 +41,9 @@ class m150231_003920_create_scheme_table extends Migration
              * относительно y
              * относительно z
              */
-            'angle_x_of_0' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
-            'angle_y_of_0' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
-            'angle_z_of_0' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
+            'angle_x' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
+            'angle_y' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
+            'angle_z' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
             /*
              * Сила энергии - выброс
              * Сила притяжения, концентрации, поглощения, *замедления*
@@ -66,7 +68,12 @@ class m150231_003920_create_scheme_table extends Migration
             'weight' => Schema::TYPE_FLOAT . ' NOT NULL DEFAULT 0',
         ],$tableOptions);
 
-        $this->createIndex('scheme_degree','{{%scheme}}',[
+        $this->addPrimaryKey('pk','{{%scheme}}',[
+            'id',
+        ]);
+
+        $this->createIndex('scheme_point','{{%scheme}}',[
+            'measure',
             'degree',
         ]);
 
@@ -83,9 +90,9 @@ class m150231_003920_create_scheme_table extends Migration
         ], true);
 
         $this->createIndex('angle',"{{%scheme}}",[
-            'angle_x_of_0',
-            'angle_y_of_0',
-            'angle_z_of_0'
+            'angle_x',
+            'angle_y',
+            'angle_z'
         ], true);
 
         $this->createIndex('physics',"{{%scheme}}",[
