@@ -29,28 +29,28 @@ class m150231_003727_create_mark_history_table extends Migration
              * Ссылается на название сущности
              * и язык сущности
              */
-            'mark_id' => Schema::TYPE_DOUBLE . ' NOT NULL',
+            'mark_id' => $this->double()->notNull(),
             /*
              * Изменяемый атрибут
              */
-            'attribute' => Schema::TYPE_STRING . ' NOT NULL',
+            'attribute' => $this->string()->notNull(),
             /*
              * Бывшее значение атрибута
              */
-            'was_to' => Schema::TYPE_TEXT . ' NOT NULL',
+            'was_to' => $this->text()->notNull(),
             /*
              * Измененное значение атрибута
              */
-            'become' => Schema::TYPE_TEXT . ' NOT NULL',
+            'become' => $this->text()->notNull(),
             /*
              * Время изменения атрибута
              * в TimeStamp
              */
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'updated_at' => $this->timestamp()->notNull(),
             /*
              * Пользователь изменивший атрибут
              */
-            'updated_by' => Schema::TYPE_STRING . ' NOT NULL',
+            'updated_by' => $this->timestamp()->notNull(),
         ], $tableOptions);
 
         $this->addPrimaryKey("pk", "{{%mark_history}}", [
