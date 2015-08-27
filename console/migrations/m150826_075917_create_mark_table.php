@@ -23,11 +23,11 @@ class m150826_075917_create_mark_table extends Migration
             /*
              * Код языка сущности
              */
-            'lang_by' => $this->string(5)->notNull(),
+            'lang_id' => $this->string(5)->notNull(),
             /*
              * Степень объекта в графе и ее схема
              */
-            'pattern_by' => $this->bigInteger()->notNull(),
+            'pattern_id' => $this->bigInteger()->notNull(),
             /*
              * Описание сущности
              * Временное поле
@@ -48,16 +48,19 @@ class m150826_075917_create_mark_table extends Migration
              */
             'rating' => $this->bigInteger(),
             /*
+             * Это предложение вариации
+             */
+            'is_supply' => $this->boolean()->notNull(),
+            /*
              * Время создания сущности
              * в TimeStamp
              */
-            'is_supply' => $this->boolean()->notNull(), // Это предложение вариации
             'created_at' => $this->timestamp(),
             /*
              * Создатель сущности
              * ссылается на пользователя
              */
-            'created_by' => $this->string(255),
+            'created_by' => $this->bigInteger(),
         ], $tableOptions);
 
         $this->addPrimaryKey('pk','{{%mark}}',[
@@ -66,7 +69,7 @@ class m150826_075917_create_mark_table extends Migration
 
         $this->createIndex('mark','{{%mark}}',[
             'title',
-            'lang_by'
+            'lang_id'
         ],true);
 
     }

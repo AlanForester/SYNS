@@ -16,7 +16,8 @@
     "lajax/yii2-translate-manager": "1.*",
     "wfstudioru/yii2-yandex-translate-api": "dev-master",
     "kartik-v/yii2-icons": "dev-master",
-    "bizley/cookiemonster": "dev-master"
+    "bizley/cookiemonster": "dev-master",
+    "duccio/apns-php": "dev-master"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",

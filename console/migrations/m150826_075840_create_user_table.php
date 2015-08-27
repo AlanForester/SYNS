@@ -18,7 +18,7 @@ class m150826_075840_create_user_table extends Migration
              * Почта пользователя
              * Уникальный индекс
              */
-            'email' => $this->string(128)->notNull(),
+            'email' => $this->string()->notNull(),
             /*
              * Телефон пользователя
              * Уникальный индекс

@@ -13,7 +13,7 @@ class m150826_092301_create_process_table extends Migration
         }
 
         $this->createTable("{{%process}}",[
-            'id' => $this->double()->notNull(),
+            'id' => $this->bigInteger()->notNull(),
             'label' => $this->string(255)->notNull(),
             'description' => $this->text(),
             /*
@@ -29,7 +29,7 @@ class m150826_092301_create_process_table extends Migration
              * Создатель сущности
              * ссылается на пользователя
              */
-            'created_by' => $this->string(255),
+            'created_by' => $this->bigInteger()->notNull(),
             'status' => $this->boolean(),
         ],$tableOptions);
 
