@@ -13,7 +13,7 @@ class m150826_075917_create_mark_table extends Migration
         }
 
         $this->createTable('{{%mark}}', [
-            'id' => $this->double()->notNull(),
+            'id' => $this->bigInteger()->notNull(),
             /*
              * Название сущности
              * Уникально совместно с наукой
@@ -23,18 +23,22 @@ class m150826_075917_create_mark_table extends Migration
             /*
              * Код языка сущности
              */
-            'lang_code' => $this->string(5)->notNull(),
+            'lang_by' => $this->string(5)->notNull(),
+            /*
+             * Степень объекта в графе и ее схема
+             */
+            'pattern_by' => $this->bigInteger()->notNull(),
             /*
              * Описание сущности
              * Временное поле
              * В дальнейшем генирируется автоматически
              */
-            'description' => $this->text()->notNull(),
+            'description' => $this->text(),
             /*
              * Представление сущности в
              * виде изображения
              */
-            'image' => $this->text()->notNull(),
+            'image' => $this->text(),
             /*
              * Статус включенности сущности
              */
@@ -42,17 +46,18 @@ class m150826_075917_create_mark_table extends Migration
             /*
              * Рейтинг сущности
              */
-            'rating' => $this->bigInteger()->notNull(),
+            'rating' => $this->bigInteger(),
             /*
              * Время создания сущности
              * в TimeStamp
              */
+            'is_supply' => $this->boolean()->notNull(), // Это предложение вариации
             'created_at' => $this->timestamp(),
             /*
              * Создатель сущности
              * ссылается на пользователя
              */
-            'created_by' => $this->string(255)->notNull(),
+            'created_by' => $this->string(255),
         ], $tableOptions);
 
         $this->addPrimaryKey('pk','{{%mark}}',[
@@ -61,7 +66,7 @@ class m150826_075917_create_mark_table extends Migration
 
         $this->createIndex('mark','{{%mark}}',[
             'title',
-            'lang_code'
+            'lang_by'
         ],true);
 
     }

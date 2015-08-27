@@ -13,11 +13,7 @@ class m150826_075840_create_user_table extends Migration
         }
 
         $this->createTable('{{%user}}', [
-            /*
-             * Идентификатор пользователя или логин
-             *
-             */
-            'login' => $this->string(128)->notNull(),
+            'id' => $this->bigInteger()->notNull(),
             /*
              * Почта пользователя
              * Уникальный индекс
@@ -44,7 +40,7 @@ class m150826_075840_create_user_table extends Migration
              * Дата рождения пользователя
              * в TimeStamp представлении
              */
-            'birthday' => $this->dateTime()->defaultValue(0),
+            'birthday' => $this->dateTime(),
             /*
              * Страна пользователя
              */
@@ -95,25 +91,25 @@ class m150826_075840_create_user_table extends Migration
             /*
              * Рейтинг пользователя
              */
-            'rating' => $this->bigInteger()->defaultValue(0),
+            'rating' => $this->bigInteger(),
             /*
              * Глобальный статус активности строки
              */
-            'status' => $this->boolean()->defaultValue(1),
+            'status' => $this->boolean(),
             /*
              * Время создания записи
              * в TimeStamp
              */
-            'created_at' => $this->timestamp()->defaultValue("NOW()"),
+            'created_at' => $this->timestamp(),
             /*
              * Время обновления записи
              * в TimeStamp
              */
-            'updated_at' => $this->timestamp()->defaultValue("NOW()"),
+            'updated_at' => $this->timestamp(),
         ], $tableOptions);
 
         $this->addPrimaryKey("pk","{{%user}}",[
-            'login'
+            'id'
         ]);
 
         $this->createIndex('email','{{%user}}','email',true);

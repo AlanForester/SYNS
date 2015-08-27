@@ -19,6 +19,7 @@ class m150826_075347_create_language_table extends Migration
             'name' => $this->string(32)->notNull(),
             'name_ascii' => $this->string(32)->notNull(),
             'status' => $this->smallInteger()->notNull(),
+            'sort' => $this->integer()->notNull()->defaultValue(0),
         ], $tableOptions);
 
         $this->addPrimaryKey('pk',"{{%language}}",[
