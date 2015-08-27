@@ -9,6 +9,7 @@ class m150827_150323_add_insert_data_to_user_table extends Migration
     public function up()
     {
         $this->insert("{{%user}}", [
+            'id' => 1,
             'email' => 'alex@collin.su',
             'phone' => '79065156927',
             'name' => 'Алекс',

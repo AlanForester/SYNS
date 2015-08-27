@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150826_092242_create_pattern_table extends Migration
@@ -71,19 +70,19 @@ class m150826_092242_create_pattern_table extends Migration
             'x',
             'y',
             'z'
-        ], true);
+        ],true);
 
         $this->createIndex('sin_wave',"{{%pattern}}",[
             'release',
             'gravity',
             'freq'
-        ], true);
+        ]);
 
         $this->createIndex('angle',"{{%pattern}}",[
             'angle_x',
             'angle_y',
             'angle_z'
-        ], true);
+        ]);
 
         $this->createIndex('physics',"{{%pattern}}",[
             'flex',
@@ -91,7 +90,7 @@ class m150826_092242_create_pattern_table extends Migration
             'length',
             'size',
             'weight'
-        ], true);
+        ]);
 
     }
 

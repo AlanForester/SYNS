@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150826_092029_create_tract_table extends Migration
@@ -15,7 +14,7 @@ class m150826_092029_create_tract_table extends Migration
         $this->createTable("{{%tract}}",[
             'id' => $this->bigInteger()->notNull(),
             'alpha_id' => $this->bigInteger()->notNull(),
-            'omega_id' => $this->bigInteger(),
+            'omega_id' => $this->bigInteger()->notNull(),
             'process_id' => $this->bigInteger()->notNull(),
             'rating' => $this->bigInteger()->notNull(),
             'is_supply' => $this->boolean()->notNull(),

@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150827_150539_add_insert_data_to_mark_table extends Migration
@@ -10,49 +9,57 @@ class m150827_150539_add_insert_data_to_mark_table extends Migration
         $this->batchInsert("{{%mark}}", [
             'id',
             'title',
-            'science_by',
+            'lang_id',
+            'pattern_id',
+            'description',
+            'image',
             'status',
+            'rating',
+            'is_supply',
             'created_at',
             'created_by'
         ],[[
             1,
-            0,
-            'Математика',
+            "0",
+            'ru-RU',
+            1,
+            "Описание",
+            "",
             true,
+            0,
+            false,
             time(),
-            'alexcollin'
+            1
         ],[
             2,
-            "Точка",
-            'Геометрия',
+            "1",
+            'ru-RU',
+            2,
+            "Описание",
+            "",
             true,
+            0,
+            false,
             time(),
-            'alexcollin'
+            1
         ],[
             3,
-            "Начало",
-            'Философия',
+            "-1",
+            'ru-RU',
+            3,
+            "Описание",
+            "",
             true,
+            0,
+            false,
             time(),
-            'alexcollin'
+            1
         ]]);
     }
 
     public function down()
     {
-        echo "m150827_150539_add_insert_data_to_mark_table cannot be reverted.\n";
 
-        return false;
     }
 
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

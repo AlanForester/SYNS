@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150827_124558_add_fk_to_tract_table extends Migration
@@ -17,7 +16,7 @@ class m150827_124558_add_fk_to_tract_table extends Migration
             'omega_id',
         ],'{{%mark}}', [
             'id'
-        ],'SET NULL','CASCADE');
+        ],'RESTRICT','CASCADE');
 
         $this->addForeignKey('tract_fk_3','{{%tract}}',[
             'process_id',

@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150826_092301_create_process_table extends Migration
@@ -30,6 +29,7 @@ class m150826_092301_create_process_table extends Migration
              * ссылается на пользователя
              */
             'created_by' => $this->bigInteger()->notNull(),
+            'is_supply' => $this->boolean()->notNull(),
             'status' => $this->boolean(),
         ],$tableOptions);
 
