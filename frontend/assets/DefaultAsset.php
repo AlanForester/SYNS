@@ -30,6 +30,7 @@ class DefaultAsset extends AssetBundle
         'directives/ui-module.js',
         'directives/ui-shift.js',
         'controllers/typeahead.js',
+        'scripts/screenfull.min.js'
 
     ];
 

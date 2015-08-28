@@ -22,12 +22,12 @@ DefaultAsset::register($this);
     <? $this->head(); ?>
 </head>
 <body ng-controller="SynsCtrl">
-
+<div class="app app-header-fixed container" id="app">
     <?= $this->render("header"); ?>
     <? $this->beginBody() ?>
         <?= $content ?>
     <? $this->endBody() ?>
-
+</div>
 </body>
 </html>
 <?php $this->endPage() ?>
