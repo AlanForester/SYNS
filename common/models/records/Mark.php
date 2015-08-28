@@ -107,7 +107,7 @@ class Mark extends \common\components\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTracts()
+    public function getAlphas()
     {
         return $this->hasMany(Tract::className(), ['alpha_id' => 'id']);
     }
@@ -115,7 +115,7 @@ class Mark extends \common\components\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTracts0()
+    public function getOmegas()
     {
         return $this->hasMany(Tract::className(), ['omega_id' => 'id']);
     }

@@ -4,7 +4,7 @@ return [
     'showScriptName' => false,
     'enableStrictParsing' => false,
     'rules' => [
-        // КАРТЫ
+        // Карты
         [
             'class' => 'yii\web\UrlRule',
             'name' => 'MapStats',
@@ -14,47 +14,32 @@ return [
         ],
         [
             'class' => 'yii\web\UrlRule',
-            'name' => 'ChainMap',
+            'name' => 'TractMap',
             'verb' => ['GET'],
             'pattern' => 'map/<id:\d+>',
             'route' => 'map/index',
         ],
         [
             'class' => 'yii\web\UrlRule',
-            'name' => 'ScienceMap',
+            'name' => 'MarkMap',
             'verb' => ['GET'],
-            'pattern' => 'map/category/<science:\w+>',
-            'route' => 'map/science',
-        ],
-        [
-            'class' => 'yii\web\UrlRule',
-            'name' => 'EssenceMap',
-            'verb' => ['GET'],
-            'pattern' => 'map/object/<essence:\w+>',
+            'pattern' => 'map/object/<mark:\w+>',
             'route' => 'map/essence',
         ],
-        // СУЩНОСТИ
+        // Марки
         [
             'class' => 'yii\web\UrlRule',
-            'name' => 'EssenceOfScience',
+            'name' => 'Mark',
             'verb' => ['GET'],
-            'pattern' => '<essence:\w+>(<science:\w+>)',
-            'route' => 'essence/index',
-        ],
-        // НАУКИ
-        [
-            'class' => 'yii\web\UrlRule',
-            'name' => 'Sciences',
-            'verb' => ['GET'],
-            'pattern' => 'sciences',
-            'route' => 'science/common',
+            'pattern' => 'common',
+            'route' => 'object/common',
         ],
         [
             'class' => 'yii\web\UrlRule',
-            'name' => 'Science',
+            'name' => 'Mark',
             'verb' => ['GET'],
-            'pattern' => 'science/<science:\w+>',
-            'route' => 'science/index',
+            'pattern' => '<object:\w+>',
+            'route' => 'object/index',
         ],
     ],
 ];
