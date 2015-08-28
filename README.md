@@ -8,4 +8,3 @@ SYNS application
 <br> *./init*
 <br> *composer install*
 <br> *./yii migrate/up*
-<br> *patch -p0 -i ./yii-unsafe.patch -o vendor/yiisoft/yii2/base/Model.php vendor/yiisoft/yii2/CHANGELOG.md*
