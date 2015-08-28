@@ -11,9 +11,13 @@
 namespace frontend\controllers;
 
 
+use common\models\records\Mark;
 use frontend\components\FrontendController;
 
 class ObjectController extends FrontendController
 {
-
+    public function actionIndex($object) {
+        $model = Mark::findOne(['title' => $object]);
+        return $this->render('index',['mark' => $model]);
+    }
 }

@@ -16,28 +16,15 @@ use yii\web\View;
  */
 class DefaultAsset extends AssetBundle
 {
-    public $sourcePath = '@webroot';
+    public $sourcePath = '@app/views/layouts/app';
 
     public $js = [
-        'js/app.js',
-        'js/config.js',
-        'js/config.lazyload.js',
-        'js/config.router.js',
-        'js/main.js',
-        'js/services/ui-load.js',
-        'js/filters/fromNow.js',
-        'js/directives/setnganimate.js',
-        'js/directives/ui-butterbar.js',
-        'js/directives/ui-focus.js',
-        'js/directives/ui-fullscreen.js',
-        'js/directives/ui-jq.js',
-        'js/directives/ui-module.js',
-        'js/directives/ui-nav.js',
-        'js/directives/ui-scroll.js',
-        'js/directives/ui-shift.js',
-        'js/directives/ui-toggleclass.js',
-        'js/directives/ui-validate.js',
-        'js/controllers/bootstrap.js'
+        'app.js',
+        'main.js',
+        'services/ui-load.js',
+        'directives/ui-jq.js',
+        'directives/ui-validate.js',
+        'directives/ui-nav.js',
     ];
 
     public $depends = [

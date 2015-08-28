@@ -16,7 +16,7 @@ use Yii;
 
 class DefaultController extends FrontendController
 {
-
+    public $layout = 'test';
     public function actionIndex() {
         return $this->render('index.php');
     }

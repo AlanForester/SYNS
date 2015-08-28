@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('app', [
+angular.module('syns', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

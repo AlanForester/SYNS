@@ -8,7 +8,7 @@ NgModuleAssetBundle::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?=Yii::$app->language?>" data-ng-app="syns">
+<html lang="<?=Yii::$app->language?>" data-ng-app="app">
 <head>
     <meta charset="<?=Yii::$app->charset?>"/>
     <title><?=Html::encode($this->title)?></title>
@@ -18,7 +18,7 @@ NgModuleAssetBundle::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <? $this->head(); ?>
 </head>
-<body ng-controller="SynsCtrl">
+<body ng-controller="AppCtrl">
 <?php $this->beginBody() ?>
 <?= $content ?>
 <?php $this->endBody() ?>
