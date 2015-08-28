@@ -25,6 +25,12 @@ class DefaultAsset extends AssetBundle
         'directives/ui-jq.js',
         'directives/ui-validate.js',
         'directives/ui-nav.js',
+        'directives/ui-fullscreen.js',
+        'directives/ui-toggleclass.js',
+        'directives/ui-module.js',
+        'directives/ui-shift.js',
+        'controllers/typeahead.js',
+
     ];
 
     public $depends = [

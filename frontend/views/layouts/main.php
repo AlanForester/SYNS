@@ -4,14 +4,17 @@
 
 use frontend\components\NgModuleAssetBundle;
 use yii\helpers\Html;
+use frontend\assets\DefaultAsset;
+
 NgModuleAssetBundle::register($this);
+DefaultAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?=Yii::$app->language?>" data-ng-app="syns">
+<html lang="<?= Yii::$app->language ?>" data-ng-app="syns">
 <head>
-    <meta charset="<?=Yii::$app->charset?>"/>
-    <title><?=Html::encode($this->title)?></title>
+    <meta charset="<?= Yii::$app->charset ?>"/>
+    <title><?= Html::encode($this->title) ?></title>
     <link rel="icon" type="image/png" href="favicon.ico">
     <meta name="description" content="<?= Yii::$app->params['projectDescription'] ?>"/>
     <meta name="author" content="<?= Yii::$app->params['projectAuthor'] ?>"/>
@@ -19,9 +22,12 @@ NgModuleAssetBundle::register($this);
     <? $this->head(); ?>
 </head>
 <body ng-controller="SynsCtrl">
-<?php $this->beginBody() ?>
-<?= $content ?>
-<?php $this->endBody() ?>
+
+    <?= $this->render("header"); ?>
+    <? $this->beginBody() ?>
+        <?= $content ?>
+    <? $this->endBody() ?>
+
 </body>
 </html>
 <?php $this->endPage() ?>

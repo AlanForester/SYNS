@@ -1,4 +1,4 @@
-angular.module('app')
+angular.module('syns')
   .directive('uiToggleClass', ['$timeout', '$document', function($timeout, $document) {
     return {
       restrict: 'AC',

@@ -1,10 +1,6 @@
 {
   "js": [
-    "app.js",
-    "config.js",
-    "config.lazyload.js",
-    "config.router.js",
-    "main.js",
+
   ],
   "css": [
 

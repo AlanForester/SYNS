@@ -1,4 +1,4 @@
- angular.module('app')
+ angular.module('syns')
   .directive('uiFullscreen', ['uiLoad', '$document', '$window', function(uiLoad, $document, $window) {
     return {
       restrict: 'AC',

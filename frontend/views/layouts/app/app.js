@@ -11,7 +11,6 @@ angular.module('syns', [
     'ui.router',
     'ui.bootstrap',
     'ui.load',
-    'ui.jq',
     'ui.validate',
     'oc.lazyLoad',
     'pascalprecht.translate'
