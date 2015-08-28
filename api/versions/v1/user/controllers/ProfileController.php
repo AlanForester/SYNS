@@ -15,7 +15,7 @@ use Yii;
 
 class ProfileController extends AuthActiveController {
 
-    public $modelClass = 'api\models\AR\user\ProfileUser';
+    public $modelClass = 'api\models\records\user\ProfileUser';
 
     public function actions() {
         $actions = parent::actions();

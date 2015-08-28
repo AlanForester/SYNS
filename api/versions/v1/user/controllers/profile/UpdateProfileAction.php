@@ -17,7 +17,7 @@ use api\components\actions\UpdateAction as BaseUpdateAction;
 
 class UpdateProfileAction extends BaseUpdateAction {
 
-    public $modelClass = 'api\models\AR\user\ProfileUser';
+    public $modelClass = 'api\models\records\user\ProfileUser';
     /**
      * Updates an existing model.
      * @return \yii\db\ActiveRecordInterface the model being updated

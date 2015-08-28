@@ -16,6 +16,6 @@ use api\components\controllers\ActiveController;
 class SearchController extends ActiveController
 {
 
-    public $modelClass = 'api\models\AR\RestEssence';
+    public $modelClass = 'api\models\records\RestEssence';
 
 }

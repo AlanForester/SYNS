@@ -11,7 +11,7 @@
 
 namespace landing\controllers;
 
-use common\models\AR\Request;
+use common\models\records\Request;
 use landing\components\LandingController;
 use landing\models\ContactForm;
 use Yii;

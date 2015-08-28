@@ -16,6 +16,6 @@ use api\components\controllers\AuthActiveController;
 class SearchController extends AuthActiveController
 {
 
-    public $modelClass = 'api\models\AR\user\SearchUser';
+    public $modelClass = 'api\models\records\user\SearchUser';
 
 }

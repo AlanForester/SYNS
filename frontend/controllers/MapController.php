@@ -11,7 +11,7 @@
 namespace app\controllers;
 
 use app\components\FrontendController;
-use app\models\AR\Chain;
+use app\models\records\Chain;
 use Yii;
 
 class MapController extends FrontendController {

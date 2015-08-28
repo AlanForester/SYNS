@@ -31,7 +31,7 @@ class LoginController extends ActiveController {
         if(!empty($load)) {
             if ($model->login()) {
                 $userData = [
-                    'login' => Yii::$app->user->identity->getId(),
+                    'id' => Yii::$app->user->identity->getId(),
                     'key' => Yii::$app->user->identity->getAuthKey(),
                 ];
                 return $userData;

@@ -11,7 +11,7 @@
 namespace common\models;
 
 use Yii;
-use common\models\AR\User;
+use common\models\records\User;
 use yii\web\IdentityInterface;
 
 /**
@@ -37,7 +37,7 @@ class UserIdentity extends User implements IdentityInterface {
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['login' => $id]);
+        return static::findOne(['id' => $id]);
     }
 
     /**
@@ -51,7 +51,7 @@ class UserIdentity extends User implements IdentityInterface {
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        return static::findOne(['auth_key' => $token]);
+        return static::findOne(['auth_key' => $token]) ;
     }
 
     /**
@@ -60,7 +60,7 @@ class UserIdentity extends User implements IdentityInterface {
      * @throws \yii\base\InvalidConfigException
      */
     public function validatePassword($password) {
-        return Yii::$app->getSecurity()->validatePassword($password,$this->password_hash);
+        return  Yii::$app->getSecurity()->validatePassword($password,$this->password_hash);
     }
 
 
@@ -70,7 +70,7 @@ class UserIdentity extends User implements IdentityInterface {
      */
     public function getId()
     {
-        return $this->login;
+        return $this->id;
     }
 
     /**

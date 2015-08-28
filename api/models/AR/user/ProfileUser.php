@@ -8,9 +8,9 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\models\AR\user;
+namespace api\models\records\user;
 
-use api\models\AR\RestUser;
+use api\models\records\RestUser;
 
 class ProfileUser extends RestUser {
 

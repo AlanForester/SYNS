@@ -75,8 +75,8 @@ class RestLoginForm extends Model
     {
         if ($this->_user === false) {
             $this->_user = User::findByEmail($this->email);
-            if(!$this->_user)
-                $this->_user = UserHelper::createUser($this->email,$this->password);
+            //if(!$this->_user)
+            //  $this->_user = UserHelper::createUser($this->email,$this->password);
         }
         return $this->_user;
     }
@@ -91,6 +91,11 @@ class RestLoginForm extends Model
     {
 
         if ($this->validate()) {
+            $user = $this->getUser();
+            $user->auth_key = Yii::$app->getSecurity()->generateRandomString();
+            if (YII_DEBUG)
+                $user->auth_key = "debug";
+            $user->save();
             return Yii::$app->user->login($this->getUser());
         } else {
             return false;

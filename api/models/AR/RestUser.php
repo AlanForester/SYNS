@@ -8,13 +8,13 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\models\AR;
+namespace api\models\records;
 
-use common\models\AR\User;
+use common\models\records\User;
 
 /**
  * Class RestUser
- * @package api\models\AR
+ * @package api\models\records
  */
 class RestUser extends User {
 

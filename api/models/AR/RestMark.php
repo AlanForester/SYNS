@@ -8,12 +8,12 @@
  * Copyright by "CleverTek LLC" 2014-2015
  */
 
-namespace api\models\AR;
+namespace api\models\records;
 
 
-use common\models\AR\Essence;
+use common\models\records\Mark;
 
-class RestEssence extends Essence {
+class RestEssence extends Mark {
 
     public $shield = [
         'default' => [
