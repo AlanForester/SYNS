@@ -16,8 +16,14 @@ use yii\web\View;
  */
 class DefaultAsset extends AssetBundle
 {
+    /**
+     * @var string
+     */
     public $sourcePath = '@app/views/layouts/app';
 
+    /**
+     * @var array
+     */
     public $js = [
         'app.js',
         'main.js',
@@ -34,11 +40,17 @@ class DefaultAsset extends AssetBundle
 
     ];
 
+    /**
+     * @var array
+     */
     public $depends = [
         'frontend\assets\common\CoreAsset',
         'frontend\assets\common\NgAsset'
     ];
 
+    /**
+     *
+     */
     public function init()
     {
         $this->jsOptions['position'] = View::POS_END;
