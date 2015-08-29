@@ -20,7 +20,6 @@
               el.removeClass('active');
             }
           });
-
       }
     };
   }]);

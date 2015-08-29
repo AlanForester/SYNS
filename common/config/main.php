@@ -32,6 +32,6 @@ return [
         ],
         'translatemanager' => [
             'class' => 'lajax\translatemanager\Component',
-        ]
+        ],
     ],
 ];
