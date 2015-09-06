@@ -26,7 +26,7 @@ class UserIdentity extends User implements IdentityInterface {
      * @return null|static
      */
     public static function findByEmail($email) {
-        return static::findOne(['email' => $email]);
+        return self::findOne(['email' => $email]);
     }
     /**
      * Finds an identity by the given ID.
@@ -37,7 +37,7 @@ class UserIdentity extends User implements IdentityInterface {
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id]);
+        return self::findOne(['id' => $id]);
     }
 
     /**
@@ -51,7 +51,7 @@ class UserIdentity extends User implements IdentityInterface {
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        return static::findOne(['auth_key' => $token]) ;
+        return self::findOne(['auth_key' => $token]) ;
     }
 
     /**

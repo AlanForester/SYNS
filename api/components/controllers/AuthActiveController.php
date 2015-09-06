@@ -54,6 +54,7 @@ class AuthActiveController extends ActiveController
                 ],
                 [
                     'class' => QueryParamAuth::className(),
+                    'tokenParam' => 'accessToken'
                 ],
                 [
                     'class' => HttpBearerAuth::className(),

@@ -123,7 +123,7 @@ class ModuleManager
             foreach ($modules as $moduleName => $module) {
                 $ruleFile = dirname(__DIR__) . '/versions/' . $version . '/' . $moduleName . '/config/urlRules.php';
                 if (file_exists($ruleFile)) {
-                    $ruleModule = require( $ruleFile );
+                    $ruleModule = require($ruleFile);
                     foreach ($ruleModule as $index => $rule) {
                         $ruleModule[$index]['prefix'] = $version;
                     }
@@ -142,9 +142,11 @@ class ModuleManager
      */
     private function buildConfig($modules, $rules)
     {
-        $config['modules'] = [];
+        $config['modules'] = [
+
+        ];
         foreach ($modules as $version => $module) {
-            $config['modules'] = ArrayHelper::merge($config['modules'],$module);
+            $config['modules'] = ArrayHelper::merge($config['modules'], $module);
         }
         $config['components']['urlManager']['rules'] = $rules;
         return $config;
